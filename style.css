@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@theme {
+	--font-display: 'Caveat', cursive;
+	--font-body: 'Roboto', sans-serif;
+}
+
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.header {
+	/* Navbar */
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-right: 8px;
+		margin: 8px;
+
+		#brand {
+			a {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+
+				img {
+					width: 50px;
+					height: 50px;
+				}
+			}
+		}
+
+		nav {
+			ul {
+				display: flex;
+				gap: 1rem;
+
+				li {
+					display: flex;
+					justify-content: center;
+					gap: 1rem;
+
+					&:not(:last-child)::after {
+						content: '/';
+						color: #2f2f2f;
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+
+	/* Banner */
+	.banner {
+		height: 200px;
+		margin-bottom: 60px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		h2 {
+			font-family: 'Caveat', cursive;
+			font-size: 54px;
+		}
+	}
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: repeat(min-content, 3);
+
+	.main-section__item {
+		border: 1px solid #2f2f2f;
+		padding: 10px;
+		width: 100%;
+
+		h3 {
+			font-family: 'Caveat', cursive;
+			font-size: 32px;
+			padding-bottom: 4px;
+		}
+
+		ul {
+			li {
+				padding: 6px 0px;
+				&:not(:last-child) {
+					border-bottom: 1px solid #2f2f2f;
+				}
+			}
+		}
+	}
+
+	#skills {
+		padding-top: 25px;
+		padding-bottom: 40px;
+
+		grid-row: 1;
+		grid-column: 1 / span 3;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+
+			li {
+				border-bottom: none;
+				padding: 2px 4px;
+				margin: 0 4px;
+			}
+		}
+	}
+
+	#projects {
+		grid-row: 2 / span 2;
+		grid-column: 1;
+
+		ul {
+			width: 100%;
+			max-height: 300px;
+			overflow-y: scroll;
+			padding-right: 20px;
+			display: block;
+		}
+	}
+
+	#work-experience {
+		grid-row: 2;
+		grid-column: 2;
+	}
+
+	#education {
+		grid-row: 3;
+		grid-column: 2;
+	}
+
+	#certificate {
+		grid-row: 2 / span 2;
+		grid-column: 3;
+
+		ul {
+			width: 100%;
+			max-height: 300px;
+			overflow-y: scroll;
+			padding-right: 20px;
+			display: block;
+		}
+	}
+
+	#contact {
+		grid-row: 4;
+		grid-column: 1 / span 3;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 32px;
+		height: 300px;
+	}
+}
+
+footer {
+	font-family: 'Caveat', cursive;
+	font-size: 24px;
+	padding: 20px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
