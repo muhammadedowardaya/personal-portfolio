@@ -15,6 +15,27 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
+	font-size: clamp(14px, 2vw, 18px); /* min 14px, naik fluid, max 18px */
+
+	@media only screen and (min-width: 760px) {
+		padding: 0 36px 36px 36px;
+	}
+
+	@media only screen and (min-width: 1024px) {
+		padding: 0;
+	}
+}
+
+h1 {
+	font-size: clamp(22px, 5vw, 38px); /* min 22px, fluid, max 38px */
+}
+
+h2 {
+	font-size: clamp(18px, 4vw, 30px); /* min 18px, fluid, max 30px */
+}
+
+h3 {
+	font-size: clamp(16px, 3vw, 22px); /* min 18px, fluid, max 30px */
 }
 
 .header {
@@ -61,16 +82,23 @@ body {
 
 	/* photo */
 	.photo {
-		height: 200px;
-		width: 200px;
 		object-fit: cover;
 		object-position: 0 -4px;
 		border-radius: 50%;
 		margin: 60px auto 0px;
+
+		height: 100px;
+		width: 100px;
+
+		@media only screen and (min-width: 760px) {
+			height: 200px;
+			width: 200px;
+		}
 	}
 
 	/* Banner */
 	.banner {
+		padding: 10px;
 		height: 200px;
 		margin-bottom: 60px;
 		display: flex;
@@ -84,7 +112,7 @@ body {
 
 			h1 {
 				font-size: 18px;
-				font-weight: 900;
+				font-weight: 600;
 				letter-spacing: 1px;
 			}
 
@@ -99,15 +127,32 @@ body {
 
 		h2 {
 			font-family: 'Caveat', cursive;
-			font-size: 54px;
+			font-size: 32px;
+			font-weight: 900;
+
+			& + p {
+				font-size: 16px;
+				font-weight: 400;
+				padding: 0 20px;
+			}
+
+			@media only screen and (min-width: 760px) {
+				font-size: 54px;
+
+				& + p {
+					font-size: 18px;
+				}
+			}
 		}
 	}
 }
 
 main {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: repeat(min-content, 3);
+	@media only screen and (min-width: 1024px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: repeat(min-content, 3);
+	}
 
 	.main-section__item {
 		border: 1px solid #2f2f2f;
@@ -197,11 +242,23 @@ main {
 	#work-experience {
 		grid-row: 2;
 		grid-column: 2;
+
+		ul {
+			li {
+				padding: 2px 10px;
+			}
+		}
 	}
 
 	#education {
 		grid-row: 3;
 		grid-column: 2;
+
+		ul {
+			li {
+				padding: 2px 10px;
+			}
+		}
 	}
 
 	#certificate {
@@ -235,6 +292,8 @@ main {
 
 		padding-top: 25px;
 		padding-bottom: 45px;
+
+		font-size: 16px;
 	}
 }
 
