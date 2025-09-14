@@ -14,6 +14,8 @@
 }
 
 body {
+	background-color: #fff;
+	color: #2f2f2f;
 	font-family: 'Roboto', sans-serif;
 	font-size: clamp(14px, 2vw, 18px); /* min 14px, naik fluid, max 18px */
 
