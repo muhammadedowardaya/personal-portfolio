@@ -18,14 +18,6 @@ body {
 	color: #2f2f2f;
 	font-family: 'Roboto', sans-serif;
 	font-size: clamp(14px, 2vw, 18px); /* min 14px, naik fluid, max 18px */
-
-	@media only screen and (min-width: 760px) {
-		padding: 0 36px 36px 36px;
-	}
-
-	@media only screen and (min-width: 1024px) {
-		padding: 0;
-	}
 }
 
 h1 {
@@ -150,16 +142,36 @@ h3 {
 }
 
 main {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 0 24px 24px 24px;
+
+	@media only screen and (min-width: 760px) {
+		padding: 0 80px 80px 80px;
+	}
+
 	@media only screen and (min-width: 1024px) {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-rows: repeat(min-content, 3);
+		gap: 0;
+		padding: 0;
 	}
 
 	.main-section__item {
-		border: 1px solid #2f2f2f;
+		box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1),
+			-1px -1px 1px rgba(0, 0, 0, 0.05);
+		border-radius: 0.2rem;
 		padding: 20px;
 		width: 100%;
+
+		@media only screen and (min-width: 1024px) {
+			border: 1px solid #2f2f2f;
+			border-radius: 0;
+			box-shadow: none;
+		}
 
 		h3 {
 			font-family: 'Caveat', cursive;
