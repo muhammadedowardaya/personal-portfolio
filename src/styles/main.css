@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+	--font-sofia: 'Sofia Sans Condensed', sans-serif;
+	--font-inter: 'Inter', sans-serif;
+	--color-text: #101010;
+	--color-background: #f7f7f7;
+	--color-cta: #456882;
+	--color-cta-hover: #3a5a72;
+}
+
+body {
+	font-family: var(--font-inter);
+	color: var(--color-text);
+	background-color: var(--color-background);
+	font-size: 16px;
+}
+
+#primary-navigation {
+	font-family: var(--font-sofia);
+}

@@ -11,6 +11,9 @@
     <link rel="canonical" href="https://muhammadedowardaya.my.id">
     <meta name="robots" content="index, follow">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/styles/main.css">
+
     <!-- Open Graph -->
     <meta property="og:title" content="Muhammad Edo Wardaya">
     <meta property="og:description" content="Personal portfolio dari Muhammad Edo Wardaya">
@@ -30,34 +33,135 @@
       "@type": "ProfilePage",
       "mainEntity": {
         "@type": "Person",
-        "name": "Angelo Huff",
-        "interactionStatistic": [{
-          "@type": "InteractionCounter",
-          "interactionType": "https://schema.org/FollowAction",
-          "userInteractionCount": 1
-        },{
-          "@type": "InteractionCounter",
-          "interactionType": "https://schema.org/LikeAction",
-          "userInteractionCount": 5
-        }],
-        "agentInteractionStatistic": {
-          "@type": "InteractionCounter",
-          "interactionType": "https://schema.org/WriteAction",
-          "userInteractionCount": 2346
-        },
-        "description": "Defender of Truth",
-        "image": "https://example.com/avatars/ahuff23.jpg",
-        "sameAs": [
-          "https://www.example.com/real-angelo",
-          "https://example.com/profile/therealangelohuff"
-        ]
+        "name": "Muhammad Edo Wardaya",
+        "description": "Frontend Web Developer",
       }
+
     }
     </script>
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+
+    <!-- Javascript -->
+    <script src="./src/js/main.js"></script>
 </head>
 
 <body>
-    <h1>Hello World!</h1>
+    <header class="p-4">
+        <div class="flex justify-between items-center">
+            <a href="#" class="font-semibold font-sofia">MEDOW</a>
+            <button aria-label="Menu button" id="menu-button" aria-controls="primary-navigation" aria-expanded="false">
+                <iconify-icon icon="ic:baseline-menu" class="text-text text-[40px]"></iconify-icon>
+            </button>
+        </div>
+        <nav aria-label="Primary Navigation" id="primary-navigation" class="hidden">
+            <ul>
+                <li><a href="#">ABOUT ME</a></li>
+                <li><a href="#">PROJECT</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="p-4">
+        <section>
+            <header>
+                <h1 class="font-bold text-2xl font-sofia">FRONTEND WEB DEVELOPER</h1>
+                <p class="font-semibold text-base font-sofia">Bogor, Indonesia</p>
+            </header>
+            <img src="./src/assets/images/my-photo.jpg" alt="Foto profil Muhammad Edo Wardaya"
+                class="my-6 w-24 h-24 object-cover object-top">
+            <p class="font-sofia text-base uppercase font-normal">
+                Bukan hanya sekedar membangun tampilan website, <br>
+                namun membuatnya jauh lebih hidup dengan interaksi menarik, desain cantik
+                dan performa yang optimal
+            </p>
+            <div class="mt-10 flex flex-col">
+                <div class="self-start">
+                    <p class="font-sofia uppercase font-semibold">Ayo Kolaborasi!</p>
+                    <a href="#" class="font-sofia font-normal">muhammadedowardaya@gmail.com</a>
+                </div>
+                <a href="#" class="self-end flex items-center gap-2"><span
+                        class="font-sofia font-semibold uppercase">project</span>
+                    <iconify-icon class="text-base" icon="ic:round-arrow-right-alt"
+                        aria-hidden="true"></iconify-icon></a>
+            </div>
+        </section>
+        <section>
+            <h2>About Me</h2>
+            <P>Saya adalah Front-End Web Developer yang berfokus pada pengembangan aplikasi web dengan fungsi dan alur
+                penggunaan yang jelas.</P>
+            <div>
+                <img src="./src/assets/images/my-photo.jpg" alt="my photo">
+                <p>Saya menikmati proses mengubah ide dan desain menjadi produk yang fungsional serta relevan bagi
+                    pengguna.
+                </p>
+            </div>
+            <p>
+                Saya memiliki pengalaman mengembangkan berbagai project mandiri menggunakan HTML, CSS, JavaScript, serta
+                framework modern seperti React dan Next.js, dengan dukungan TypeScript, Astro, Tailwind CSS, dan Vite.
+            </p>
+            <a href="#">LETS CONTACT -></a>
+        </section>
+        <section>
+            <h2>PROJECTS</h2>
+
+            <article>
+                <img src="./src/assets/images/my-photo.jpg" alt="gif preview">
+                <div>
+                    <img src="./src/assets/images/my-photo.jpg" alt="icon/thumbnail website">
+                    <header>
+                        <h3>Serpihan Kata</h3>
+                        <p>Website yang menampilkan daftar tulisan dari setiap pengguna, like, comment, save and share
+                            postingan adalah fiturnya</p>
+                    </header>
+                </div>
+                <a href="#">Source Github</a>
+            </article>
+        </section>
+        <section>
+            <h2>CONTACT ME</h2>
+            <form action="#">
+                <div>
+                    <label for="name">YOUR NAME*</label>
+                    <input type="text" id="name" name="name" autocomplete="off" required>
+                </div>
+                <div>
+                    <label for="phone">PHONE*</label>
+                    <input type="tel" id="phone" name="phone" autocomplete="off" required>
+                </div>
+                <div>
+                    <label for="email">YOUR EMAIL*</label>
+                    <input type="email" id="email" name="email" autocomplete="off" required>
+                </div>
+                <div>
+                    <label for="guest_help">HOW CAN I HELP YOU*</label>
+                    <textarea name="guest_help" id="guest_help" cols="30" rows="10" required>
+
+                    </textarea>
+                </div>
+                <button type="submit">DISCUSS THE PROJECT -></button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <p>muhammadedowardaya@gmail.com</p>
+            <div>
+                <a href="#">INSTAGRAM</a>
+                <a href="#">TIKTOK</a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">ABOUT ME</a></li>
+                <li><a href="#">PROJECTS</a></li>
+            </ul>
+        </nav>
+        <p>MUHAMMAD EDO WARDAYA</p>
+    </footer>
+
+
 </body>
 
 </html>
