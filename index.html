@@ -45,6 +45,9 @@
 
     <!-- Javascript -->
     <script type="module" src="./src/js/main.js"></script>
+    <!-- Web Component  -->
+    <script type="module" src="./src/components/project-item.js"></script>
+
 </head>
 
 <body>
@@ -106,18 +109,11 @@
         <section>
             <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">PROJECTS</h2>
 
-            <article class="project-item">
-                <img src="./src/assets/gif/spongebob-thinking.gif" alt="gif preview">
-                <div class="project-item__info">
-                    <img src="./src/assets/images/my-photo.jpg" alt="icon/thumbnail website">
-                    <header>
-                        <h3>Serpihan Kata</h3>
-                        <p>Website yang menampilkan daftar tulisan dari setiap pengguna, like, comment, save and share
-                            postingan adalah fiturnya</p>
-                    </header>
-                </div>
-                <a href="#" aria-label="github button"><span>Source Github</span></a>
-            </article>
+            <div class="flex flex-wrap gap-8">
+                <project-item preview="./src/assets/gif/spongebob-thinking.gif" icon="./src/assets/images/my-photo.jpg"
+                    title="Serpihan Kata" description="Website yang menampilkan daftar tulisan dari setiap pengguna..."
+                    github="https://github.com/username/repo"></project-item>
+            </div>
         </section>
         <section>
             <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">CONTACT ME</h2>
@@ -136,21 +132,25 @@
                 </div>
                 <div class="field">
                     <label for="guest_help">How can I help you*</label>
-                    <textarea name="guest_help" id="guest_help" required>
-
-                    </textarea>
+                    <textarea name="guest_help" id="guest_help" required></textarea>
                 </div>
-                <button type="submit"><span>discuss the project</span><iconify-icon class="text-lg"
-                        icon="ic:round-arrow-right-alt" aria-hidden="true"></iconify-icon></button>
+                <button type="submit"><span>discuss the project</span><iconify-icon icon="ic:round-arrow-right-alt"
+                        aria-hidden="true"></iconify-icon></button>
             </form>
         </section>
     </main>
     <footer class="mt-16">
-        <div>
+        <div class="connect">
             <p>muhammadedowardaya@gmail.com</p>
-            <div>
-                <a href="#">INSTAGRAM</a>
-                <a href="#">TIKTOK</a>
+            <div class="social-media">
+                <a href="#">
+                    <span>INSTAGRAM</span>
+                    <iconify-icon icon="ic:outline-arrow-outward"></iconify-icon>
+                </a>
+                <a href="#">
+                    <span>TIKTOK</span>
+                    <iconify-icon icon="ic:outline-arrow-outward"></iconify-icon>
+                </a>
             </div>
         </div>
         <nav>
@@ -161,7 +161,6 @@
         </nav>
         <p class="name">MUHAMMAD <br class="md:hidden">EDO WARDAYA</p>
     </footer>
-
 
 </body>
 

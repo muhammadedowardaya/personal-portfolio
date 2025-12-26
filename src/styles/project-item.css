@@ -1,0 +1,46 @@
+article.project-item {
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+
+	img {
+		height: 150px;
+		width: 100%;
+		object-fit: cover;
+	}
+
+	.project-item__info {
+		display: flex;
+		gap: 28px;
+
+		img {
+			flex-shrink: 0;
+			width: 52px;
+			height: 52px;
+			object-fit: cover;
+		}
+
+		header {
+			h3 {
+				font-size: 20px;
+				font-weight: 600;
+			}
+		}
+	}
+
+	a {
+		font-weight: 600;
+		text-align: center;
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 40px;
+		width: 100%;
+		background-color: var(--color-cta);
+
+		&:hover {
+			background-color: var(--color-cta-hover);
+		}
+	}
+}
