@@ -51,10 +51,16 @@ class ProjectItem extends HTMLElement {
                                 font-size: 20px;
                                 font-weight: 600;
                             }
+
+                            & > * {
+                                padding: 0;
+                                margin: 0;
+                            }
                         }
                     }
 
                     a {
+                        text-decoration: none;
                         font-weight: 600;
                         text-align: center;
                         color: #fff;
