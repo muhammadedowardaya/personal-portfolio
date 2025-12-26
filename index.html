@@ -101,14 +101,14 @@
                 Saya memiliki pengalaman mengembangkan berbagai project mandiri menggunakan HTML, CSS, JavaScript, serta
                 framework modern seperti React dan Next.js, dengan dukungan TypeScript, Astro, Tailwind CSS, dan Vite.
             </p>
-            <a href="#" class="my-16 block text-center">LETS CONTACT -></a>
+            <a href="#" class="mt-16 block text-center">LETS CONTACT -></a>
         </section>
         <section>
-            <h2>PROJECTS</h2>
+            <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">PROJECTS</h2>
 
-            <article>
-                <img src="./src/assets/images/my-photo.jpg" alt="gif preview">
-                <div>
+            <article class="project-item">
+                <img src="./src/assets/gif/spongebob-thinking.gif" alt="gif preview">
+                <div class="project-item__info">
                     <img src="./src/assets/images/my-photo.jpg" alt="icon/thumbnail website">
                     <header>
                         <h3>Serpihan Kata</h3>
@@ -116,35 +116,36 @@
                             postingan adalah fiturnya</p>
                     </header>
                 </div>
-                <a href="#">Source Github</a>
+                <a href="#" aria-label="github button"><span>Source Github</span></a>
             </article>
         </section>
         <section>
-            <h2>CONTACT ME</h2>
-            <form action="#">
-                <div>
-                    <label for="name">YOUR NAME*</label>
+            <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">CONTACT ME</h2>
+            <form action="#" class="contact">
+                <div class="field">
+                    <label for="name">Your Name*</label>
                     <input type="text" id="name" name="name" autocomplete="off" required>
                 </div>
-                <div>
-                    <label for="phone">PHONE*</label>
+                <div class="field">
+                    <label for="phone">Phone*</label>
                     <input type="tel" id="phone" name="phone" autocomplete="off" required>
                 </div>
-                <div>
-                    <label for="email">YOUR EMAIL*</label>
+                <div class="field">
+                    <label for="email">Your Email*</label>
                     <input type="email" id="email" name="email" autocomplete="off" required>
                 </div>
-                <div>
-                    <label for="guest_help">HOW CAN I HELP YOU*</label>
-                    <textarea name="guest_help" id="guest_help" cols="30" rows="10" required>
+                <div class="field">
+                    <label for="guest_help">How can I help you*</label>
+                    <textarea name="guest_help" id="guest_help" required>
 
                     </textarea>
                 </div>
-                <button type="submit">DISCUSS THE PROJECT -></button>
+                <button type="submit"><span>discuss the project</span><iconify-icon class="text-lg"
+                        icon="ic:round-arrow-right-alt" aria-hidden="true"></iconify-icon></button>
             </form>
         </section>
     </main>
-    <footer>
+    <footer class="mt-16">
         <div>
             <p>muhammadedowardaya@gmail.com</p>
             <div>
@@ -158,7 +159,7 @@
                 <li><a href="#">PROJECTS</a></li>
             </ul>
         </nav>
-        <p>MUHAMMAD EDO WARDAYA</p>
+        <p class="name">MUHAMMAD <br class="md:hidden">EDO WARDAYA</p>
     </footer>
 
 
