@@ -45,8 +45,10 @@
 
     <!-- Javascript -->
     <script type="module" src="./src/js/main.js"></script>
-    <!-- Web Component  -->
+    <!-- WEB COMPONENTS  -->
     <script type="module" src="./src/components/project-item.js"></script>
+    <!-- GSAP  -->
+    <script type="module" src="./src/ts/animation.ts"></script>
 
 </head>
 
@@ -66,8 +68,8 @@
             </ul>
         </nav>
     </header>
-    <main class="p-4">
-        <section>
+    <main>
+        <section class="p-4 pb-16 bg-background relative z-10">
             <header>
                 <h1 class="font-bold text-5xl font-sofia">FRONTEND WEB DEVELOPER</h1>
                 <p class="font-semibold text-xl font-sofia">Bogor, Indonesia</p>
@@ -89,25 +91,34 @@
                     <iconify-icon icon="ic:round-arrow-right-alt" aria-hidden="true"></iconify-icon></a>
             </div>
         </section>
-        <section>
-            <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">About Me</h2>
-            <P>Saya adalah Front-End Web Developer yang berfokus pada pengembangan aplikasi web dengan fungsi dan alur
-                penggunaan yang jelas.</P>
-            <div class="my-7 flex gap-7">
-                <img src="./src/assets/images/my-photo.jpg" alt="my photo"
-                    class="w-32 h-32 object-cover object-top shrink-0">
-                <p>Saya menikmati proses mengubah ide dan desain menjadi produk yang fungsional serta relevan bagi
-                    pengguna.
+        <section class="about-me">
+            <header class="relative z-0">
+                <h2 class="font-sofia font-extrabold text-[20vw] uppercase text-center">About Me</h2>
+            </header>
+            <article class="bg-text text-background p-4 pb-8">
+                <P class="font-normal text-base">Saya adalah Front-End Web Developer
+                    yang berfokus pada
+                    pengembangan aplikasi web dengan fungsi dan alur
+                    penggunaan yang jelas.</P>
+                <div class="my-7 flex gap-7">
+                    <img src="./src/assets/images/my-photo.jpg" alt="my photo"
+                        class="w-32 h-32 object-cover object-top shrink-0">
+                    <p>Saya menikmati proses mengubah ide dan desain menjadi produk yang fungsional serta relevan bagi
+                        pengguna.
+                    </p>
+                </div>
+                <p>
+                    Saya memiliki pengalaman mengembangkan berbagai project mandiri menggunakan HTML, CSS, JavaScript,
+                    serta
+                    framework modern seperti React dan Next.js, dengan dukungan TypeScript, Astro, Tailwind CSS, dan
+                    Vite.
                 </p>
-            </div>
-            <p>
-                Saya memiliki pengalaman mengembangkan berbagai project mandiri menggunakan HTML, CSS, JavaScript, serta
-                framework modern seperti React dan Next.js, dengan dukungan TypeScript, Astro, Tailwind CSS, dan Vite.
-            </p>
-            <a href="#" class="mt-16 flex items-center gap-2 justify-center text-center uppercase"><span>lets
-                    connect</span><iconify-icon icon="ic:round-arrow-right-alt" aria-hidden="true"></iconify-icon></a>
+                <a href="#" class="mt-16 flex items-center gap-2 justify-center text-center uppercase"><span>lets
+                        connect</span><iconify-icon icon="ic:round-arrow-right-alt"
+                        aria-hidden="true"></iconify-icon></a>
+            </article>
         </section>
-        <section>
+        <section class="p-4">
             <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">PROJECTS</h2>
 
             <div class="flex flex-wrap gap-8">

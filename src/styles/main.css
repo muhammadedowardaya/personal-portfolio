@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
 
 @import 'tailwindcss';
 
 @theme {
 	--font-sofia: 'Sofia Sans Condensed', sans-serif;
+	--font-spline: 'Spline Sans Mono', monospace;
 	--font-inter: 'Inter', sans-serif;
 	--color-text: #101010;
 	--color-background: #f7f7f7;
@@ -21,6 +22,12 @@ body {
 
 #primary-navigation {
 	font-family: var(--font-sofia);
+}
+
+.about-me {
+	p {
+		font-family: var(--font-spline);
+	}
 }
 
 form.contact {
