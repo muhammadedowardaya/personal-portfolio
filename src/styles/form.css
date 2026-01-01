@@ -1,0 +1,55 @@
+form.contact {
+	width: 280px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+
+	.field {
+		position: relative;
+
+		label {
+			transition: 0.5s;
+			font-family: var(--font-sofia);
+			font-weight: 600;
+			text-transform: uppercase;
+			position: absolute;
+
+			&.active {
+				font-weight: 400;
+				transform: translateY(-30px);
+			}
+		}
+
+		input {
+			width: 100%;
+			/* height: 40px; */
+			border-bottom: 1px solid #101010;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		textarea {
+			width: 100%;
+			border-bottom: 1px solid #101010;
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+
+	button[type='submit'] {
+		font-weight: 700;
+		font-family: var(--font-sofia);
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 12px;
+		font-size: 24px;
+		text-transform: uppercase;
+	}
+}

@@ -13,6 +13,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./src/styles/main.css">
+    <link rel="stylesheet" href="./src/styles/form.css">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Muhammad Edo Wardaya">
@@ -47,73 +48,95 @@
     <script type="module" src="./src/js/main.js"></script>
     <!-- WEB COMPONENTS  -->
     <script type="module" src="./src/components/project-item.js"></script>
-    <!-- GSAP  -->
-    <script type="module" src="./src/ts/animation.ts"></script>
+    <!-- ANIMATE  -->
+    <script type="module" src="./src/ts/navigation.ts"></script>
+    <script type="module" src="./src/ts/about-me.ts"></script>
+    <script type="module" src="./src/ts/form.ts"></script>
 
 </head>
 
-<body>
-    <header class="p-4">
-        <div class="flex justify-between items-center">
-            <a href="#" class="font-semibold font-sofia">MEDOW</a>
-            <button aria-label="Menu button" id="menu-button" aria-controls="primary-navigation" aria-expanded="false">
-                <iconify-icon icon="ic:baseline-menu" class="text-text text-[40px]"></iconify-icon>
+<body class="relative">
+    <header class="header-navigation sticky top-0 z-20 p-4 md:px-20 md:pt-6 text-xl md:flex md:justify-between">
+        <div class="flex justify-between items-center relative z-50 navbar">
+            <a href="#" class="font-semibold">MEDOW</a>
+            <button class="md:hidden flex gap-2" aria-label="Toggle menu button" id="toggle-menu__button"
+                aria-controls="primary-navigation" aria-expanded="false">
+                <span>[</span>
+                <span class="toggle-menu__text inline-block">MENU</span>
+                <span>]</span>
             </button>
         </div>
-        <nav aria-label="Primary Navigation" id="primary-navigation" class="hidden">
-            <ul>
+        <nav aria-label="Primary Navigation" id="primary-navigation"
+            class="font-sofia p-4 fixed md:static z-30 bottom-0 top-full left-0 right-0 bg-background md:block">
+            <div class="address mt-10 ml-auto w-max font-light tracking-wide">
+                <p>BOGOR, INDONESIA :</p>
+                <p class="flex justify-end gap-2"><span><span class="font-inter">(</span>GMT+7)</span><span
+                        class="time"></span></p>
+            </div>
+            <ul class="md:flex md:w-full border tracking-tighter text-5xl font-bold">
                 <li><a href="#">ABOUT ME</a></li>
                 <li><a href="#">PROJECT</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="#">CONNECT</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="p-4 pb-16 bg-background relative z-10">
-            <header>
-                <h1 class="font-bold text-5xl font-sofia">FRONTEND WEB DEVELOPER</h1>
-                <p class="font-semibold text-xl font-sofia">Bogor, Indonesia</p>
+        <section class="p-4 md:px-20 pb-16 bg-background relative z-10 md:pt-10">
+            <header class="w-max md:mx-auto">
+                <h1
+                    class="relative z-10 font-extrabold text-5xl md:text-center md:text-[96px] font-sofia tracking-tighter">
+                    FRONTEND
+                    WEB <br class="md:hidden">
+                    DEV<span class="md:hidden">ELOPER</span>
+                </h1>
+                <p class="font-semibold md:font-normal text-xl font-sofia md:ml-auto w-max">Based in
+                    Bogor,
+                    Indonesia</p>
             </header>
             <img src="./src/assets/images/my-photo.jpg" alt="Foto profil Muhammad Edo Wardaya"
-                class="my-6 w-24 h-24 object-cover object-top">
-            <p class="font-normal font-sofia text-xl uppercase">
+                class="my-6 md:my-0 w-24 h-24 relative md:-top-6 md:-right-6 md:z-0 md:w-[150px] md:h-[150px] object-cover object-top md:mx-auto">
+            <p class="font-normal font-spline text-base md:ml-[25vw] md:max-w-[450px]">
                 Bukan hanya sekedar membangun tampilan website,
                 namun membuatnya jauh lebih hidup dengan interaksi menarik, desain cantik
                 dan performa yang optimal
             </p>
-            <div class="mt-10 flex flex-col gap-12 text-xl">
+            <div class="mt-10 md:mt-16 flex flex-col gap-12">
                 <div class="self-start">
-                    <p class="font-sofia uppercase font-semibold">Ayo Kolaborasi!</p>
-                    <a href="#" class="font-sofia font-normal">muhammadedowardaya@gmail.com</a>
+                    <p class="tracking-widest uppercase font-semibold">Ayo Kolaborasi!</p>
+                    <a href="#" class="font-normal">muhammadedowardaya@gmail.com</a>
                 </div>
-                <a href="#" class="self-end flex items-center gap-2"><span
-                        class="font-sofia font-semibold uppercase">project</span>
+                <a href="#" class="self-end flex items-center gap-2 text-xl"><span
+                        class="font-semibold uppercase">project</span>
                     <iconify-icon icon="ic:round-arrow-right-alt" aria-hidden="true"></iconify-icon></a>
             </div>
         </section>
         <section class="about-me">
             <header class="relative z-0">
-                <h2 class="font-sofia font-extrabold text-[20vw] uppercase text-center">About Me</h2>
+                <h2
+                    class="font-sofia font-extrabold text-[13.5vw] leading-normal -tracking-wider uppercase text-center">
+                    About
+                    Me</h2>
             </header>
             <article class="bg-text text-background p-4 pb-8">
-                <P class="font-normal text-base">Saya adalah Front-End Web Developer
+                <P class="about-me__description font-normal text-base">Saya adalah Front-End Web Developer
                     yang berfokus pada
                     pengembangan aplikasi web dengan fungsi dan alur
                     penggunaan yang jelas.</P>
-                <div class="my-7 flex gap-7">
+                <div class="about-me__description my-7 flex gap-7">
                     <img src="./src/assets/images/my-photo.jpg" alt="my photo"
                         class="w-32 h-32 object-cover object-top shrink-0">
                     <p>Saya menikmati proses mengubah ide dan desain menjadi produk yang fungsional serta relevan bagi
                         pengguna.
                     </p>
                 </div>
-                <p>
+                <p class="about-me__description">
                     Saya memiliki pengalaman mengembangkan berbagai project mandiri menggunakan HTML, CSS, JavaScript,
                     serta
                     framework modern seperti React dan Next.js, dengan dukungan TypeScript, Astro, Tailwind CSS, dan
                     Vite.
                 </p>
-                <a href="#" class="mt-16 flex items-center gap-2 justify-center text-center uppercase"><span>lets
+                <a href="#"
+                    class="mt-16 flex items-center gap-2 justify-center text-center uppercase text-xl"><span>lets
                         connect</span><iconify-icon icon="ic:round-arrow-right-alt"
                         aria-hidden="true"></iconify-icon></a>
             </article>
