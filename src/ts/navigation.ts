@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	const toggleMenuTextTl = gsap.timeline({
 		defaults: {
-			ease: 'power1.inOut'
+			ease: 'power1.inOut',
 		}
 	});
 
@@ -66,12 +66,39 @@ window.addEventListener('DOMContentLoaded', () => {
 				top: "100%",
 			});
 			toggleMenuButton.setAttribute('aria-expanded', 'false');
+			toggleMenuTextTl.to(toggleMenuText, {
+				fontSize: '0px',
+				padding: 0,
+				onComplete: () => {
+					if (toggleMenuText) {
+						toggleMenuText.textContent = 'MENU';
+					}
+				}
+			}).to(toggleMenuText, {
+				fontSize: '16px',
+				padding: '0px 4px',
+				delay: 0.3
+			})
 		} else {
 			console.info('buka menu')
 			menuTl.to(primaryNavigation, {
 				top: "0%",
 			});
 			toggleMenuButton.setAttribute('aria-expanded', 'true');
+
+			toggleMenuTextTl.to(toggleMenuText, {
+				fontSize: '0px',
+				padding: 0,
+				onComplete: () => {
+					if (toggleMenuText) {
+						toggleMenuText.textContent = 'CLOSE';
+					}
+				}
+			}).to(toggleMenuText, {
+				fontSize: '16px',
+				padding: '0px 4px',
+				delay: 0.3
+			})
 		}
 
 		console.info(`aria-expanded = ${toggleMenuButton.getAttribute('aria-expanded')}`);
