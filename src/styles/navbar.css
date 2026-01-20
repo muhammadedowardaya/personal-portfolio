@@ -1,0 +1,31 @@
+@media (min-width: 768px) {
+	header.header-navigation {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+	}
+
+	#primary-navigation {
+		ul {
+			margin-left: 35%;
+
+			li:not(:last-child) {
+				&::after {
+					content: ']';
+				}
+
+				&::before {
+					content: '[';
+				}
+
+				a {
+					padding: 0 4px;
+				}
+			}
+
+			li:last-child {
+				font-weight: 900;
+				margin-left: auto;
+			}
+		}
+	}
+}

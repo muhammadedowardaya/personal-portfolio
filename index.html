@@ -1,45 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muhammad Edo Wardaya</title>
 
-    <meta name="description" content="Personal portfolio dari Muhammad Edo Wardaya">
-    <link rel="canonical" href="https://muhammadedowardaya.my.id">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="Personal portfolio dari Muhammad Edo Wardaya" />
+    <link rel="canonical" href="https://muhammadedowardaya.my.id" />
+    <meta name="robots" content="index, follow" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./src/styles/main.css">
-    <link rel="stylesheet" href="./src/styles/form.css">
+    <link rel="stylesheet" href="./src/styles/main.css" />
+    <link rel="stylesheet" href="./src/styles/navbar.css" />
+    <link rel="stylesheet" href="./src/styles/form.css" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Muhammad Edo Wardaya">
-    <meta property="og:description" content="Personal portfolio dari Muhammad Edo Wardaya">
-    <meta property="og:image" content="https://github.com/muhammadedowardaya.png">
-    <meta property="og:url" content="https://muhammadedowardaya.my.id">
-    <meta property="og:site_name" content="Muhammad Edo Wardaya">
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="Muhammad Edo Wardaya" />
+    <meta property="og:description" content="Personal portfolio dari Muhammad Edo Wardaya" />
+    <meta property="og:image" content="https://github.com/muhammadedowardaya.png" />
+    <meta property="og:url" content="https://muhammadedowardaya.my.id" />
+    <meta property="og:site_name" content="Muhammad Edo Wardaya" />
+    <meta property="og:type" content="website" />
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Muhammad Edo Wardaya">
-    <meta name="twitter:description" content="Personal portfolio dari Muhammad Edo Wardaya">
-    <meta name="twitter:image" content="https://github.com/muhammadedowardaya.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Muhammad Edo Wardaya" />
+    <meta name="twitter:description" content="Personal portfolio dari Muhammad Edo Wardaya" />
+    <meta name="twitter:image" content="https://github.com/muhammadedowardaya.png" />
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfilePage",
-      "mainEntity": {
-        "@type": "Person",
-        "name": "Muhammad Edo Wardaya",
-        "description": "Frontend Web Developer",
-      }
-
-    }
-    </script>
+			{
+				"@context": "https://schema.org",
+				"@type": "ProfilePage",
+				"mainEntity": {
+					"@type": "Person",
+					"name": "Muhammad Edo Wardaya",
+					"description": "Frontend Web Developer"
+				}
+			}
+		</script>
 
     <!-- Iconify -->
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
@@ -50,14 +50,15 @@
     <script type="module" src="./src/components/project-item.js"></script>
     <!-- ANIMATE  -->
     <script type="module" src="./src/ts/navigation.ts"></script>
-    <script type="module" src="./src/ts/about-me.ts"></script>
+    <script type="module" src="./src/ts/about.ts"></script>
     <script type="module" src="./src/ts/form.ts"></script>
-
+    <!-- PIXIJS -->
+    <script type="module" src="./src/pixijs/index.ts"></script>
 </head>
 
 <body class="relative">
-    <header class="header-navigation sticky top-0 z-20 p-5 md:px-20 md:pt-6 text-xl md:flex md:justify-between">
-        <div class="flex justify-between items-center relative z-50 navbar">
+    <header class="header-navigation sticky top-0 z-20 p-5 md:px-20 md:pt-6 text-xl">
+        <div class="flex justify-between items-center relative z-50 navbar md:hidden">
             <a href="#" class="font-semibold">MEDOW</a>
             <button class="md:hidden flex items-center font-light" aria-label="Toggle menu button"
                 id="toggle-menu__button" aria-controls="primary-navigation" aria-expanded="false">
@@ -66,50 +67,68 @@
                 <span>]</span>
             </button>
         </div>
-        <nav aria-label="Primary Navigation" id="primary-navigation"
-            class="border-2 border-red-600 flex flex-col p-4 fixed md:static h-screen z-30 top-full left-0 right-0 bg-background md:block">
-            <div class="address text-sm mt-20 ml-auto w-max font-light tracking-wider">
+        <!-- <nav aria-label="Primary Navigation" id="primary-mobile-navigation"
+            class="flex flex-col p-4 md:hidden fixed z-30 h-dvh top-full left-0 right-0 bg-background">
+            <div class="address text-sm mt-20 ml-auto w-max font-light tracking-wider md:hidden">
                 <p>BOGOR, INDONESIA:</p>
-                <p class="flex justify-end gap-2"><span><span class="font-inter">(</span>GMT+7<span
-                            class="font-inter">)</span></span><span class="time"></span></p>
+                <p class="flex justify-end gap-2">
+                    <span><span class="font-inter">(</span>GMT+7<span class="font-inter">)</span></span><span
+                        class="time"></span>
+                </p>
             </div>
-            <ul class="mt-20 flex flex-col md:flex-row gap-4 md:w-full tracking-[-3px] font-semibold text-5xl">
-                <li><a href="#about-me">ABOUT ME</a></li>
+            <ul
+                class="mt-20 md:m-0 flex flex-col md:flex-row gap-[10%] md:w-full tracking-[-3px] md:tracking-normal font-semibold md:font-normal text-5xl md:text-base">
+                <li><a href="#about">ABOUT ME</a></li>
                 <li><a href="#projects">PROJECT</a></li>
                 <li><a href="#contact">CONNECT</a></li>
             </ul>
-            <div class="mt-auto">
-                <p class="text-center font-extrabold tracking-[2%] text-2xl font-sofia">muhammadedowardaya@gmail.com</p>
+            <div class="mt-auto md:hidden">
+                <p class="text-center font-extrabold tracking-[2%] text-2xl font-sofia">
+                    muhammadedowardaya@gmail.com
+                </p>
                 <ul class="flex justify-between gap-4 mt-4">
                     <li><a href="#">INSTAGRAM</a></li>
                     <li><a href="#">TIKTOK</a></li>
                 </ul>
             </div>
+        </nav> -->
+
+        <nav aria-label="Primary Navigation" id="primary-desktop-navigation"
+            class="flex flex-row z-30 h-max bg-transparent border mt-20 m-0 flex tracking-[-3px] tracking-normal font-normal text-base">
+            <ul>
+                <a href="#" class="font-semibold">MEDOW</a>
+                <li><a href="#about">ABOUT ME</a></li>
+                <li><a href="#projects">PROJECT</a></li>
+                <a href="#contact">CONNECT</a>
+            </ul>
         </nav>
+
+        <!--  -->
     </header>
     <main>
-        <section class="p-5 md:px-20 pb-16 bg-background relative z-10 md:pt-10">
+        <section class="p-5 md:px-20 pb-16 bg-background relative z-10 md:pt-16">
             <header class="w-max md:mx-auto">
                 <h1
-                    class="relative z-10 font-extrabold text-5xl md:text-center md:text-[96px] font-sofia tracking-tighter">
-                    FRONTEND
-                    WEB <br class="md:hidden">
+                    class="relative z-10 font-extrabold md:font-normal text-5xl md:text-center md:text-[96px] font-sofia tracking-[-5px]">
+                    FRONTEND WEB <br class="md:hidden" />
                     DEV<span class="md:hidden">ELOPER</span>
                 </h1>
-                <p class="font-semibold md:font-normal text-xl font-sofia md:ml-auto w-max">Based in
-                    Bogor,
-                    Indonesia</p>
+                <p class="font-semibold md:font-normal text-xl font-sofia relative md:-top-2 md:ml-auto w-max">
+                    Based in Bogor, Indonesia
+                </p>
             </header>
             <img src="./src/assets/images/my-photo.jpg" alt="Foto profil Muhammad Edo Wardaya"
-                class="my-6 md:my-0 w-24 h-24 relative md:-top-6 md:-right-6 md:z-0 md:w-[150px] md:h-[150px] object-cover object-top md:mx-auto">
-            <p class="font-normal font-spline text-base md:ml-[25vw] md:max-w-[450px]">
-                Bukan hanya sekedar membangun tampilan website,
-                namun membuatnya jauh lebih hidup dengan interaksi menarik, desain cantik
-                dan performa yang optimal
+                class="my-6 md:my-0 w-24 h-24 relative md:-top-6 md:-right-6 md:z-0 md:w-[150px] md:h-[150px] object-cover object-top md:mx-auto" />
+            <p class="font-normal text-base md:ml-[25vw] md:max-w-[480px]">
+                Bukan hanya sekedar membangun tampilan website, namun membuatnya jauh
+                lebih hidup dengan interaksi menarik, desain cantik dan performa yang
+                optimal
             </p>
-            <div class="mt-10 md:mt-16 flex flex-col gap-12">
+            <div class="mt-10 md:mt-16 flex flex-col md:flex-row items-center justify-between gap-12">
                 <div class="self-start">
-                    <p class="tracking-widest uppercase font-semibold">Ayo Kolaborasi!</p>
+                    <p class="tracking-widest uppercase font-semibold">
+                        Ayo Kolaborasi!
+                    </p>
                     <a href="#" class="font-normal">muhammadedowardaya@gmail.com</a>
                 </div>
                 <a href="#" class="self-end flex items-center gap-2 text-xl"><span
@@ -117,30 +136,76 @@
                     <iconify-icon icon="ic:round-arrow-right-alt" aria-hidden="true"></iconify-icon></a>
             </div>
         </section>
-        <section id="about-me" class="about-me">
+        <section id="about" class="overflow-hidden">
             <header class="relative z-0">
                 <h2
                     class="font-sofia font-extrabold text-[13.5vw] leading-normal -tracking-wider uppercase text-center">
-                    About
-                    Me</h2>
+                    About Me
+                </h2>
             </header>
-            <article class="bg-text text-background p-4 pb-8">
-                <P class="about-me__description font-normal text-base">Saya adalah Front-End Web Developer
-                    yang berfokus pada
-                    pengembangan aplikasi web dengan fungsi dan alur
-                    penggunaan yang jelas.</P>
+            <div class="about-track">
+                <p class="text-1">
+                    Halo, nama saya Muhammad Edo Wardaya, biasa dipanggil Edo atau
+                    bahkan MEDOW hihi_-
+                </p>
+                <p class="text-2">Saya bersekolah di SDN Tegallangkap 01</p>
+                <p class="text-3">
+                    Di sini saya mulai menyukai untuk membuat sebuah gambar dan
+                    mewarnainya
+                </p>
+                <p class="text-4">
+                    Saya pernah berkesempatan untuk mewakili satu kecamatan dalam ajang
+                    lomba menggambar karena telah menjadi juara 1 pada lomba antar
+                    sekoklah SD satu kecamatan Tenjolaya, walaupun pada akhirnya saya
+                    pulang bukan sebagai seorang juara ahihihi
+                </p>
+                <p class="text-5">
+                    Di SMP PGRI Tenjolaya, saya mulai mengenal dunia komputer
+                </p>
+                <p class="text-6">
+                    Di SMK Putra Pelita Tenjolaya, saya memilih jurusan Teknik Komputer
+                    dan Jaringan, Di sini, saya semakin nyaman berinteraksi dengan
+                    komputer dan mulai mengenal Dunia Pemrograman Komputer
+                </p>
+                <p class="text-7">
+                    Setelah lulus dari SMK, saya membayangkan kembali akan seperti apa
+                    saya di masa depan, saya kembali melihat ke pemrograman komputer dan
+                    memutuskan untuk fokus ke 1 bidang yaitu Pemrograman Website dengan
+                    keterbatasan perangkat sebagai pertimbangan
+                </p>
+                <p class="text-8">
+                    Saya melanjutkan pendidikan ke STIKOM El Rahma dan mengambil jurusan
+                    Informatika, Di sini saya mendapatkan gambaran lebih luas tentang
+                    dunia hardware, jaringan komputer, robotik, bahasa pemrograman,
+                    struktur data, algoritma, database dan tentu saja dunia website.
+                </p>
+                <p class="text-9">
+                    Pada masa ini, saya banyak mengambil kursus online untuk memperkuat
+                    pondasi dalam membuat website. Saya belajar secara bertahap mulai
+                    dari html, css, tailwindcss, javascript, vite, reactjs, typescript,
+                    nextjs, dan mencoba berbagai library untuk membuat animasi seperti
+                    gsap dan melakukan kontrol pada 3D model menggunakan threejs atau 2D
+                    menggunakan pixijs
+                </p>
+            </div>
+            <article class="bg-text text-background p-4 pb-8 md:p-20">
+                <p class="about-me__description font-normal text-base md:text-4xl">
+                    Saya adalah Front-End Web Developer yang berfokus pada pengembangan
+                    aplikasi web dengan fungsi dan alur penggunaan yang jelas.
+                </p>
                 <div class="about-me__description my-7 flex gap-7">
                     <img src="./src/assets/images/my-photo.jpg" alt="my photo"
-                        class="w-32 h-32 object-cover object-top shrink-0">
-                    <p>Saya menikmati proses mengubah ide dan desain menjadi produk yang fungsional serta relevan bagi
-                        pengguna.
+                        class="w-32 h-32 object-cover object-top shrink-0" />
+                    <p>
+                        Saya menikmati proses mengubah ide dan desain menjadi produk yang
+                        fungsional serta relevan bagi pengguna.
                     </p>
                 </div>
                 <p class="about-me__description">
-                    Saya memiliki pengalaman mengembangkan berbagai project mandiri menggunakan HTML, CSS, JavaScript,
-                    serta
-                    framework modern seperti React dan Next.js, dengan dukungan TypeScript, Astro, Tailwind CSS, dan
-                    Vite.
+                    Saya memiliki pengalaman mengembangkan berbagai project mandiri
+                    menggunakan HTML, CSS, JavaScript, serta framework modern seperti
+                    React dan Next.js, dengan dukungan TypeScript, Astro, Tailwind CSS,
+                    dan Vite.
                 </p>
                 <a href="#"
                     class="mt-16 flex items-center gap-2 justify-center text-center uppercase text-xl"><span>lets
@@ -149,7 +214,9 @@
             </article>
         </section>
         <section id="projects" class="p-5">
-            <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">PROJECTS</h2>
+            <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">
+                PROJECTS
+            </h2>
 
             <div class="flex flex-wrap gap-8">
                 <!-- Project Items -->
@@ -159,26 +226,30 @@
             </div>
         </section>
         <section id="contact">
-            <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">CONTACT ME</h2>
+            <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">
+                CONTACT ME
+            </h2>
             <form action="#" class="contact">
                 <div class="field">
                     <label for="name">Your Name*</label>
-                    <input type="text" id="name" name="name" autocomplete="off" required>
+                    <input type="text" id="name" name="name" autocomplete="off" required />
                 </div>
                 <div class="field">
                     <label for="phone">Phone*</label>
-                    <input type="tel" id="phone" name="phone" autocomplete="off" required>
+                    <input type="tel" id="phone" name="phone" autocomplete="off" required />
                 </div>
                 <div class="field">
                     <label for="email">Your Email*</label>
-                    <input type="email" id="email" name="email" autocomplete="off" required>
+                    <input type="email" id="email" name="email" autocomplete="off" required />
                 </div>
                 <div class="field">
                     <label for="guest_help">How can I help you*</label>
                     <textarea name="guest_help" id="guest_help" required></textarea>
                 </div>
-                <button type="submit"><span>discuss the project</span><iconify-icon icon="ic:round-arrow-right-alt"
-                        aria-hidden="true"></iconify-icon></button>
+                <button type="submit">
+                    <span>discuss the project</span><iconify-icon icon="ic:round-arrow-right-alt"
+                        aria-hidden="true"></iconify-icon>
+                </button>
             </form>
         </section>
     </main>
@@ -198,13 +269,12 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">ABOUT ME</a></li>
-                <li><a href="#">PROJECTS</a></li>
+                <li><a href="#about">ABOUT ME</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
             </ul>
         </nav>
-        <p class="name">MUHAMMAD <br class="md:hidden">EDO WARDAYA</p>
+        <p class="name">MUHAMMAD <br class="md:hidden" />EDO WARDAYA</p>
     </footer>
-
 </body>
 
 </html>
