@@ -39,8 +39,8 @@ export class GerbangSDN extends Container {
          ),
       };
 
-      this.currentState = 'buka_gerbang';
-      this.currentSprite = this.animations.buka_gerbang;
+      this.currentState = 'tutup_gerbang';
+      this.currentSprite = this.animations.tutup_gerbang;
       this.addChild(this.currentSprite);
       this.currentSprite.play();
    }

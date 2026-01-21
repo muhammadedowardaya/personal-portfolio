@@ -13,15 +13,15 @@ export class AboutScene extends Scene {
    private cameraX = 0;
 
    private textTriggers = [
-      { class: '.text-1', triggerPoint: 1000, distance: 500, visible: false },
-      { class: '.text-2', triggerPoint: 2000, distance: 500, visible: false },
-      { class: '.text-3', triggerPoint: 3000, distance: 700, visible: false },
-      { class: '.text-4', triggerPoint: 4000, distance: 700, visible: false },
-      { class: '.text-5', triggerPoint: 5000, distance: 700, visible: false },
-      { class: '.text-6', triggerPoint: 6000, distance: 700, visible: false },
-      { class: '.text-7', triggerPoint: 7000, distance: 700, visible: false },
-      { class: '.text-8', triggerPoint: 8000, distance: 700, visible: false },
-      { class: '.text-9', triggerPoint: 9000, distance: 700, visible: false },
+      { class: '.text-1', triggerPoint: 500, distance: 500, visible: false },
+      { class: '.text-2', triggerPoint: 1500, distance: 500, visible: false },
+      { class: '.text-3', triggerPoint: 2500, distance: 700, visible: false },
+      { class: '.text-4', triggerPoint: 3500, distance: 700, visible: false },
+      { class: '.text-5', triggerPoint: 4500, distance: 700, visible: false },
+      { class: '.text-6', triggerPoint: 5500, distance: 700, visible: false },
+      { class: '.text-7', triggerPoint: 6500, distance: 700, visible: false },
+      { class: '.text-8', triggerPoint: 7500, distance: 700, visible: false },
+      { class: '.text-9', triggerPoint: 8500, distance: 700, visible: false },
    ];
 
    constructor() {
@@ -89,6 +89,13 @@ export class AboutScene extends Scene {
                   });
                },
             });
+         }
+
+         // Khusus gerbang sekolah
+         if (this.textTriggers[6].visible) {
+            this.world.gerbangSdn.setState('buka_gerbang');
+         } else {
+            this.world.gerbangSdn.setState('tutup_gerbang');
          }
       }
    }

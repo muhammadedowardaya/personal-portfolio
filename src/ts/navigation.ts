@@ -54,9 +54,14 @@ ScrollTrigger.create({
 window.addEventListener('DOMContentLoaded', () => {
 	// Menu Button
 	const toggleMenuButton = document.getElementById('toggle-menu__button');
-	const primaryNavigation = document.getElementById('primary-navigation');
-	const navPrimaryItems = document.querySelectorAll(
-		'#primary-navigation ul li a',
+	const primaryNavigation = document.getElementById(
+		'primary-mobile-navigation',
+	);
+	const navPrimaryMobileItems = document.querySelectorAll(
+		'#primary-mobile-navigation ul li a',
+	);
+	const navPrimaryDesktopItems = document.querySelectorAll(
+		'#primary-desktop-navigation ul li a',
 	);
 
 	const changeMenuTo = (
@@ -119,7 +124,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 
 	// Primary Navigation
-	navPrimaryItems.forEach((item) => {
+	navPrimaryMobileItems.forEach((item) => {
 		item.addEventListener('click', (e) => {
 			e.preventDefault();
 
@@ -144,6 +149,22 @@ window.addEventListener('DOMContentLoaded', () => {
 					scrollAnimateWithDelay(`${target}`, 0.2);
 				});
 			}
+		});
+	});
+
+	navPrimaryDesktopItems.forEach((item) => {
+		item.addEventListener('click', (e) => {
+			e.preventDefault();
+
+			const target = item.getAttribute('href');
+			gsap.to(window, {
+				scrollTo: {
+					y: `${target}`,
+					offsetY: 50,
+				},
+				duration: 1,
+				ease: 'power1.inOut',
+			});
 		});
 	});
 

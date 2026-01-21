@@ -1,14 +1,7 @@
 @media (min-width: 768px) {
-	header.header-navigation {
-		display: grid;
-		grid-template-columns: max-content 1fr;
-	}
-
-	#primary-navigation {
+	#primary-desktop-navigation {
 		ul {
-			margin-left: 35%;
-
-			li:not(:last-child) {
+			li:not(:last-child, :first-child) {
 				&::after {
 					content: ']';
 				}
@@ -22,9 +15,8 @@
 				}
 			}
 
-			li:last-child {
-				font-weight: 900;
-				margin-left: auto;
+			li:hover {
+				font-weight: 600;
 			}
 		}
 	}

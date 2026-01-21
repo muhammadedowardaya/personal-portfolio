@@ -18,7 +18,7 @@ export class AboutWorld extends Container {
 
    private house: Sprite;
    private sdn: Sprite;
-   private gerbangSdn: GerbangSDN;
+   gerbangSdn: GerbangSDN;
 
    stickman: Stickman;
 
