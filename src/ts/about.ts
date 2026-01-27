@@ -48,26 +48,31 @@ const aboutMeDescriptionTl = gsap.timeline({
    },
 });
 
-const aboutMeDescriptionTextSplit = SplitText.create('#about-me__description', {
-   type: 'words',
-});
+const aboutMeDescriptionTextSplit = SplitText.create(
+   '.about-me__description p',
+   {
+      type: 'words',
+   },
+);
 
 aboutMeDescriptionTl.from(aboutMeDescriptionTextSplit.words, {
-   y: -100,
+   // y: -100,
    autoAlpha: 0,
    stagger: 1,
 });
 
-gsap.from('#about img', {
-   x: -100,
+gsap.from('#about .about-me__description > img', {
    autoAlpha: 0,
+   translateY: -100,
    scrollTrigger: {
-      trigger: '#about img',
+      trigger: '#about .about-me__description > img',
       pin: false, // pin the trigger element while active
-      start: 'top bottom', // when the top of the trigger hits the top of the viewport
+      start: 'center center', // when the top of the trigger hits the top of the viewport
       end: 'bottom center', // end after scrolling 500px beyond the start
-      scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+      scrub: 1.5, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
    },
+   stagger: 2.5,
+   duration: 2,
 });
 
 //    return () => { // optional

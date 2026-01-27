@@ -3,14 +3,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Scene } from '../core/Scene';
 import { AboutWorld } from '../worlds/AboutWorld';
 import { StickmanController } from '../entities/StickmanController';
-import { app } from '../index';
+import { Application } from 'pixi.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export class AboutScene extends Scene {
-   private world: AboutWorld;
-   private stickmanController: StickmanController;
+   private world!: AboutWorld;
+   private stickmanController!: StickmanController;
    private cameraX = 0;
+
+   private app: Application;
 
    private textTriggers = [
       { class: '.text-1', triggerPoint: 500, distance: 500, visible: false },
@@ -24,10 +26,17 @@ export class AboutScene extends Scene {
       { class: '.text-9', triggerPoint: 8500, distance: 700, visible: false },
    ];
 
-   constructor() {
+   constructor(app: Application) {
       super();
-      this.world = new AboutWorld();
+
+      this.app = app;
+   }
+
+   async init() {
+      this.world = new AboutWorld(this.app);
       this.addChild(this.world);
+
+      const app = this.app;
 
       this.stickmanController = new StickmanController();
       this.stickmanController.x = app.renderer.screen.width / 2;

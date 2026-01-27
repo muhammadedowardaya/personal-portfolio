@@ -52,8 +52,6 @@
     <script type="module" src="./src/ts/navigation.ts"></script>
     <script type="module" src="./src/ts/about.ts"></script>
     <script type="module" src="./src/ts/form.ts"></script>
-    <!-- PIXIJS -->
-    <script type="module" src="./src/pixijs/index.ts"></script>
 </head>
 
 <body class="relative">
@@ -61,7 +59,7 @@
         <div class="flex justify-between items-center relative z-50 navbar md:hidden">
             <a href="#" class="font-semibold">MEDOW</a>
             <button class="md:hidden flex items-center font-light" aria-label="Toggle menu button"
-                id="toggle-menu__button" aria-controls="primary-navigation" aria-expanded="false">
+                id="toggle-menu__button" aria-controls="primary-mobile-navigation" aria-expanded="false">
                 <span>[</span>
                 <span class="toggle-menu__text inline-block px-1">MENU</span>
                 <span>]</span>
@@ -93,8 +91,8 @@
         </nav>
 
         <nav aria-label="Primary Navigation" id="primary-desktop-navigation"
-            class="hidden w-full md:flex z-30 h-max bg-transparent tracking-[-3px] tracking-normal font-normal text-lg">
-            <ul class="flex gap-2 justify-between w-full">
+            class="hidden w-full md:flex z-30 h-max bg-transparent tracking-[-3px] font-normal text-lg">
+            <ul class="flex gap-4 justify-between w-full">
                 <li>
                     <a href="#" class="font-semibold">MEDOW</a>
                 </li>
@@ -112,7 +110,7 @@
         <section class="p-5 md:px-20 pb-16 bg-background relative z-10 md:pt-16">
             <header class="w-max md:mx-auto">
                 <h1
-                    class="relative z-10 font-extrabold md:font-normal text-5xl md:text-center md:text-[96px] font-sofia tracking-[-5px]">
+                    class="relative z-10 font-extrabold md:font-normal text-4xl md:text-center md:text-[96px] font-sofia tracking-[-2pt] md:tracking-[-5px]">
                     FRONTEND WEB <br class="md:hidden" />
                     DEV<span class="md:hidden">ELOPER</span>
                 </h1>
@@ -192,31 +190,39 @@
                 </p>
             </div>
             <article class="bg-text text-background p-4 pb-8 md:p-20">
-                <p class="about-me__description font-normal text-base md:text-4xl">
-                    Saya adalah Front-End Web Developer yang berfokus pada pengembangan
-                    aplikasi web dengan fungsi dan alur penggunaan yang jelas.
-                </p>
-                <div class="about-me__description my-7 flex gap-7">
+                <div class="about-me__description font-normal text-base md:text-4xl md:max-w-[50%] md:mx-auto">
+                    <p>
+                        Saya adalah Front-End Web Developer yang berfokus pada
+                        pengembangan aplikasi web dengan fungsi dan alur penggunaan yang
+                        jelas.
+                    </p>
+                </div>
+                <div class="about-me__description my-7 flex gap-7 md:max-w-[50%] md:mx-auto">
                     <img src="./src/assets/images/my-photo.jpg" alt="my photo"
                         class="w-32 h-32 object-cover object-top shrink-0" />
-                    <p>
+                    <p class="md:text-lg">
                         Saya menikmati proses mengubah ide dan desain menjadi produk yang
                         fungsional serta relevan bagi pengguna.
                     </p>
                 </div>
-                <p class="about-me__description">
-                    Saya memiliki pengalaman mengembangkan berbagai project mandiri
-                    menggunakan HTML, CSS, JavaScript, serta framework modern seperti
-                    React dan Next.js, dengan dukungan TypeScript, Astro, Tailwind CSS,
-                    dan Vite.
-                </p>
+
+                <div class="about-me__description flex gap-7 items-center md:max-w-[50%] md:mx-auto">
+                    <p>
+                        Saya memiliki pengalaman mengembangkan berbagai project mandiri
+                        menggunakan HTML, CSS, JavaScript, serta framework modern seperti
+                        React dan Next.js, dengan dukungan TypeScript, Astro, Tailwind
+                        CSS, dan Vite.
+                    </p>
+                    <img src="./src/assets/images/my-photo.jpg" alt="my photo"
+                        class="w-32 h-32 object-cover object-top shrink-0" />
+                </div>
                 <a href="#"
                     class="mt-16 flex items-center gap-2 justify-center text-center uppercase text-xl"><span>lets
                         connect</span><iconify-icon icon="ic:round-arrow-right-alt"
                         aria-hidden="true"></iconify-icon></a>
             </article>
         </section>
-        <section id="projects" class="p-5">
+        <section id="projects" class="p-5 md:max-w-[50%] md:mx-auto">
             <h2 class="my-16 font-sofia font-extrabold text-5xl uppercase text-center">
                 PROJECTS
             </h2>
@@ -276,8 +282,11 @@
                 <li><a href="#projects">PROJECTS</a></li>
             </ul>
         </nav>
-        <p class="name">MUHAMMAD <br class="md:hidden" />EDO WARDAYA</p>
+        <p class="name md:text-4xl">MUHAMMAD <br />EDO WARDAYA</p>
     </footer>
+
+    <!-- PIXIJS -->
+    <script type="module" src="./src/pixijs/index.ts"></script>
 </body>
 
 </html>

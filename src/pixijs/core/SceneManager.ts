@@ -1,5 +1,5 @@
-import { Application } from "pixi.js";
-import { Scene } from "./Scene";
+import { Application } from 'pixi.js';
+import { Scene } from './Scene';
 
 export class SceneManager {
    private static app: Application;
@@ -9,7 +9,7 @@ export class SceneManager {
       this.app = app;
    }
 
-   static changeScene(scene: Scene) {
+   static async changeScene(scene: Scene) {
       if (this.currentScene) {
          this.currentScene.onExit();
          this.currentScene.destroy({ children: true });
@@ -17,6 +17,7 @@ export class SceneManager {
       }
 
       this.currentScene = scene;
+      await scene.init(); // ⬅️ DI SINI
       this.app.stage.addChild(scene);
       scene.onEnter();
    }

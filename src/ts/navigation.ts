@@ -30,7 +30,7 @@ const changeNavMenuColor = (color: string) => {
 // add a media query. When it matches, the associated function will run
 // mm.add('(min-width: 768px)', () => {
 ScrollTrigger.create({
-	trigger: '#about article',
+	trigger: '#about > article:has(div)',
 	start: 'top-=40px top',
 	end: 'bottom-=40px top',
 	scrub: true,

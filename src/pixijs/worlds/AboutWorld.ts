@@ -1,10 +1,11 @@
-import { Container, Rectangle, Sprite, Texture } from 'pixi.js';
-import { app } from '../../pixijs/index';
+import { Application, Container, Rectangle, Sprite, Texture } from 'pixi.js';
 import { Stickman } from '../entities/Stickman';
 import { GerbangSDN } from '../entities/GerbangSDN';
 
 export class AboutWorld extends Container {
    cameraX = 0;
+
+   private app: Application;
 
    private sky: Sprite;
    private clouds: Container;
@@ -23,17 +24,18 @@ export class AboutWorld extends Container {
    stickman: Stickman;
 
    static width = 10000;
-   static height = 600;
+   static height: number;
 
-   constructor() {
+   constructor(app: Application) {
       super();
 
+      this.app = app;
       this.sortableChildren = true;
 
       this.sky = new Sprite(Texture.from('sky'));
       this.sky.anchor.set(0);
-      this.sky.width = app.renderer.screen.width;
-      this.sky.height = app.renderer.screen.height;
+      this.sky.width = app?.renderer.screen.width;
+      this.sky.height = app?.renderer.screen.height;
       this.addChild(this.sky);
 
       this.clouds = new Container();
@@ -69,7 +71,7 @@ export class AboutWorld extends Container {
 
       const bgTreesRepeatedTexture = new Texture({
          source: bgTreesTexture.source,
-         frame: new Rectangle(0, 0, 10000, 300),
+         frame: new Rectangle(0, 0, AboutWorld.width, 300),
       });
 
       this.bgTrees = new Sprite(bgTreesRepeatedTexture);
@@ -101,8 +103,8 @@ export class AboutWorld extends Container {
       });
 
       this.ground2 = new Sprite(ground2RepeatedTexture);
-      this.ground2.width = 10000;
-      this.ground2.height = 600;
+      this.ground2.width = AboutWorld.width;
+      this.ground2.height = AboutWorld.height;
       this.ground2.y = 320;
       this.addChild(this.ground2);
 

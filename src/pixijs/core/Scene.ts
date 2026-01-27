@@ -1,13 +1,13 @@
-import { Container, DestroyOptions } from "pixi.js";
+import { Container, DestroyOptions } from 'pixi.js';
 
 export abstract class Scene extends Container {
+   abstract init(): Promise<void>;
+   abstract update(delta: number): void;
+
    onEnter(): void { }
    onExit(): void { }
 
-   abstract update(delta: number): void;
-
    destroy(options?: DestroyOptions | boolean): void {
-      this.onExit();
       super.destroy(options);
    }
 }
