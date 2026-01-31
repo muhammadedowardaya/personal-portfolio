@@ -33,15 +33,15 @@ export class AboutScene extends Scene {
    }
 
    async init() {
-      this.world = new AboutWorld(this.app);
-      this.addChild(this.world);
-
       const app = this.app;
+      this.world = new AboutWorld(app);
+      this.addChild(this.world);
 
       this.stickmanController = new StickmanController();
       this.stickmanController.x = app.renderer.screen.width / 2;
       this.stickmanController.y = app.renderer.screen.height / 2 + 200;
       this.stickmanController.scale.set(0.5);
+
       this.stickmanController.onMoveStateChange = (state) => {
          if (state === 0) {
             if (this.stickmanController.lastState === -1) {
@@ -98,13 +98,6 @@ export class AboutScene extends Scene {
                   });
                },
             });
-         }
-
-         // Khusus gerbang sekolah
-         if (this.textTriggers[6].visible) {
-            this.world.gerbangSdn.setState('buka_gerbang');
-         } else {
-            this.world.gerbangSdn.setState('tutup_gerbang');
          }
       }
    }
