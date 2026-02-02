@@ -38,6 +38,7 @@ export class AssetRegistry {
             ...generateFrames('../assets/clouds', 'cloud', 9, 1, 1),
             ['gerbang_sdn', assetUrl('../assets/gerbang_sdn.png')],
             ['sky', assetUrl('../assets/sky.png')],
+            ['hill_background', assetUrl('../assets/hill_background.png')],
             ['bg_trees', assetUrl('../assets/bg_trees.png')],
             ['ground_2', assetUrl('../assets/ground_2.png')],
             ['tanah', assetUrl('../assets/tanah.png')],

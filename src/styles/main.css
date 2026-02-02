@@ -23,7 +23,7 @@ body {
 .about-track {
 	display: block;
 	position: relative;
-	height: 100dvh;
+	height: max-content;
 
 	canvas {
 		width: 100%;

@@ -11,7 +11,7 @@ const changeNavMenuColor = (color: string) => {
 	const headerNavMenuSelector = [
 		'.navbar',
 		'.toggle-menu__text',
-		'#primary-navigation ul li',
+		'#primary-desktop-navigation ul li',
 	];
 	const toggleMenuButton = document.getElementById('toggle-menu__button');
 	const isOpen = toggleMenuButton?.getAttribute('aria-expanded') === 'true';

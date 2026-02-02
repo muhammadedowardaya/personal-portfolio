@@ -13,7 +13,8 @@ export class AboutWorld extends Container {
    private fences: Container;
    private wheats: Container;
    private bgTrees: Sprite;
-   private grassForeground: Sprite;
+   private hillBackground: Sprite;
+   // private grassForeground: Sprite;
    private ground: Sprite;
 
    private house: Sprite;
@@ -22,7 +23,8 @@ export class AboutWorld extends Container {
 
    stickman: Stickman;
 
-   static width = 10000;
+   static WORLD_WIDTH = 10000;
+   static WORLD_HEIGHT = 800;
 
    constructor(app: Application) {
       super();
@@ -36,37 +38,37 @@ export class AboutWorld extends Container {
       this.sky = new Sprite(Texture.from('sky'));
       this.sky.anchor.set(0);
       this.sky.width = screenWidth;
-      this.sky.height = screenHeight;
+      this.sky.height = AboutWorld.WORLD_HEIGHT;
       this.addChild(this.sky);
 
       this.clouds = new Container();
       this.clouds.scale.set(0.8);
-      this.clouds.y = screenHeight / 2 - 400;
+      this.clouds.y = AboutWorld.WORLD_HEIGHT / 2 - 400;
       this.createClouds();
       this.addChild(this.clouds);
 
       this.grass = new Container();
       this.grass.x = 380;
-      this.grass.y = screenHeight - 350;
+      this.grass.y = AboutWorld.WORLD_HEIGHT - 350;
       this.createGrass();
       this.addChild(this.grass);
 
       this.bigTree = new Container();
       this.bigTree.x = 700;
       this.bigTree.scale.set(3);
-      this.bigTree.y = screenHeight / 5 - 397;
+      this.bigTree.y = screenHeight - AboutWorld.WORLD_HEIGHT - 100;
       this.addChild(this.bigTree);
 
       this.wheats = new Container();
       this.wheats.scale.set(0.8);
-      this.wheats.y = screenHeight - 300;
+      this.wheats.y = screenHeight - AboutWorld.WORLD_HEIGHT / 3 - 25;
       this.wheats.x = 500;
       this.createWheats();
       this.addChild(this.wheats);
 
       this.fences = new Container();
       this.fences.x = 500;
-      this.fences.y = screenHeight - 170;
+      this.fences.y = screenHeight - AboutWorld.WORLD_HEIGHT / 5 + 5;
       this.fences.scale.set(0.25);
       this.createFences();
       this.addChild(this.fences);
@@ -76,84 +78,102 @@ export class AboutWorld extends Container {
 
       const bgTreesRepeatedTexture = new Texture({
          source: bgTreesTexture.source,
-         frame: new Rectangle(0, 0, AboutWorld.width, 300),
+         frame: new Rectangle(0, 0, AboutWorld.WORLD_WIDTH, 500),
       });
 
       this.bgTrees = new Sprite(bgTreesRepeatedTexture);
-      this.bgTrees.width = AboutWorld.width;
-      this.bgTrees.height = 300;
-      this.bgTrees.y = screenHeight - 395;
+      this.bgTrees.width = AboutWorld.WORLD_WIDTH;
+      this.bgTrees.height = 500;
+      this.bgTrees.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2;
       this.createBigTrees();
       this.addChild(this.bgTrees);
+
+      const hillBackgroundTexture = Texture.from('hill_background');
+      hillBackgroundTexture.source.addressMode = 'repeat';
+
+      const hillBackgroundRepeatedTexture = new Texture({
+         source: hillBackgroundTexture.source,
+         frame: new Rectangle(0, 0, AboutWorld.WORLD_WIDTH, 500),
+      });
+
+      this.hillBackground = new Sprite(hillBackgroundRepeatedTexture);
+      this.hillBackground.width = AboutWorld.WORLD_WIDTH;
+      this.hillBackground.height = 500;
+      this.hillBackground.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2;
+      this.addChild(this.hillBackground);
 
       const tanahTexture = Texture.from('tanah');
       tanahTexture.source.addressMode = 'repeat';
 
       const tanahTextureRepeated = new Texture({
          source: tanahTexture.source,
-         frame: new Rectangle(0, 0, AboutWorld.width, 130),
+         frame: new Rectangle(0, 0, AboutWorld.WORLD_WIDTH, 130),
       });
 
       this.ground = new Sprite(tanahTextureRepeated);
-      this.ground.width = AboutWorld.width;
+      this.ground.width = AboutWorld.WORLD_WIDTH;
       this.ground.height = 130;
-      this.ground.y = screenHeight - 130;
-      // this.ground.y = screenHeight - 100;
+      this.ground.y = screenHeight - AboutWorld.WORLD_HEIGHT / 7;
+      // this.ground.y = AboutWorld.WORLD_HEIGHT - 100;
       this.addChild(this.ground);
 
-      const grassForegroundTexture = Texture.from('ground_2');
-      grassForegroundTexture.source.addressMode = 'repeat';
+      // const grassForegroundTexture = Texture.from('ground_2');
+      // grassForegroundTexture.source.addressMode = 'repeat';
 
-      const grassForegroundTextureRepeated = new Texture({
-         source: grassForegroundTexture.source,
-         frame: new Rectangle(0, 0, AboutWorld.width, 600),
-      });
+      // const grassForegroundTextureRepeated = new Texture({
+      //    source: grassForegroundTexture.source,
+      //    frame: new Rectangle(0, 0, AboutWorld.WORLD_WIDTH, 600),
+      // });
 
-      this.grassForeground = new Sprite(grassForegroundTextureRepeated);
-      this.grassForeground.width = AboutWorld.width;
-      this.grassForeground.height = screenHeight;
-      this.grassForeground.y = screenHeight / 2 + 20;
-      this.addChild(this.grassForeground);
+      // this.grassForeground = new Sprite(grassForegroundTextureRepeated);
+      // this.grassForeground.width = AboutWorld.WORLD_WIDTH;
+      // this.grassForeground.height = AboutWorld.WORLD_HEIGHT;
+      // this.grassForeground.y = AboutWorld.WORLD_HEIGHT / 2 + 20;
+      // this.addChild(this.grassForeground);
 
       this.stickman = new Stickman();
       this.stickman.scale.set(0.4);
       this.stickman.x = 200;
-      this.stickman.y = screenHeight - 150;
+      this.stickman.y = screenHeight - AboutWorld.WORLD_HEIGHT / 7 - 10;
       this.addChild(this.stickman);
 
       this.house = new Sprite(Texture.from('house'));
       this.house.anchor.set(0.5);
       this.house.scale.set(0.8);
       this.house.x = 200;
-      this.house.y = screenHeight / 3 + 50;
+      this.house.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2 + 30;
       this.addChild(this.house);
 
       this.sdn = new Sprite(Texture.from('sdn'));
       this.sdn.anchor.set(0.5, 1);
       this.sdn.scale.set(1.3);
       this.sdn.x = 1900;
-      this.sdn.y = screenHeight + 395;
+      this.sdn.y = screenHeight - AboutWorld.WORLD_HEIGHT / 10 + 500;
       this.addChild(this.sdn);
 
       this.gerbangSdn = new Sprite(Texture.from('gerbang_sdn'));
       this.gerbangSdn.scale.set(1);
       this.gerbangSdn.x = 1400;
-      this.gerbangSdn.y = screenHeight / 2 - 160;
+      this.gerbangSdn.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2 - 50;
       this.addChild(this.gerbangSdn);
 
       // this.sky.zIndex = 0;
       // this.clouds.zIndex = 1;
-      // this.bgTrees.zIndex = 2;
-      // this.house.zIndex = 6;
-      // this.sdn.zIndex = 3;
-      // this.gerbangSdn.zIndex = 4;
+      this.bgTrees.zIndex = 2;
+      this.hillBackground.zIndex = 1;
+      this.house.zIndex = 6;
+      this.sdn.zIndex = 3;
+      this.gerbangSdn.zIndex = 4;
       this.fences.zIndex = 5;
-      // this.grass.zIndex = 6;
+      this.grass.zIndex = 6;
       this.bigTree.zIndex = 6;
       this.wheats.zIndex = 4;
       this.ground.zIndex = 8;
       this.stickman.zIndex = 7;
       // this.grassForeground.zIndex = 8;
+
+      // this.scale.set(scale);
+      // this.y = app.renderer.screen.height - AboutWorld.WORLD_HEIGHT * scale;
    }
 
    private createClouds() {
@@ -218,7 +238,8 @@ export class AboutWorld extends Container {
 
       this.sky.x = -x * 0; // diam
       this.clouds.x = -x * 0.08; // parallax
-      this.grassForeground.x = -x * 0.4; // parallax
+      // this.grassForeground.x = -x * 0.4; // parallax
+      this.hillBackground.x = -x * 0.09; // parallax
       this.bgTrees.x = -x * 0.1; // parallax
       this.ground.x = -x * 0.205; // parallax
       this.house.x = 200 - x * 0.205;
