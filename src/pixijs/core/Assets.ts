@@ -1,7 +1,7 @@
 import { Assets, Texture } from 'pixi.js';
 
 function assetUrl(path: string) {
-   return new URL(path, import.meta.url).href;
+   return `${import.meta.env.BASE_URL}${path}`;
 }
 
 function generateFrames(
