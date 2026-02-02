@@ -21,4 +21,6 @@ import { App } from './core/App';
    app.ticker.add((delta) => {
       SceneManager.update(delta as unknown as number);
    });
+
+   app.renderer.events.autoPreventDefault = false;
 })();
