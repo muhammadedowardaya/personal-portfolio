@@ -20,6 +20,10 @@ body {
 	line-height: 1.625;
 }
 
+#about {
+	touch-action: pan-y;
+}
+
 .about-track {
 	display: block;
 	position: relative;

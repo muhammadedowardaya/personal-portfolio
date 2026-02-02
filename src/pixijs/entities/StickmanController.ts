@@ -46,6 +46,7 @@ export class StickmanController extends Container {
          },
       });
 
+      moveLeftBtn.eventMode = 'static';
       moveLeftBtn.anchor.set(0.5);
       moveLeftBtn.scale.set(0.5);
       moveLeftBtn.x = -100;
@@ -82,6 +83,8 @@ export class StickmanController extends Container {
             },
          },
       });
+
+      moveRightBtn.eventMode = 'static';
 
       moveRightBtn.onDown.connect(() => {
          this.setMoveState(1);

@@ -172,8 +172,7 @@ export class AboutWorld extends Container {
       this.stickman.zIndex = 7;
       // this.grassForeground.zIndex = 8;
 
-      // this.scale.set(scale);
-      // this.y = app.renderer.screen.height - AboutWorld.WORLD_HEIGHT * scale;
+      this.eventMode = 'none';
    }
 
    private createClouds() {
