@@ -171,8 +171,6 @@ export class AboutWorld extends Container {
       this.ground.zIndex = 8;
       this.stickman.zIndex = 7;
       // this.grassForeground.zIndex = 8;
-
-      this.eventMode = 'none';
    }
 
    private createClouds() {

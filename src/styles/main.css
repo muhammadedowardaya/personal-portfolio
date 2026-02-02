@@ -20,20 +20,15 @@ body {
 	line-height: 1.625;
 }
 
-#about {
-	touch-action: pan-y;
-}
-
 .about-track {
 	display: block;
 	position: relative;
 	height: max-content;
-	touch-action: pan-y;
 
 	canvas {
 		width: 100%;
 		height: 100%;
-		touch-action: pan-y;
+		touch-action: pan-y !important;
 	}
 
 	.text-1,
