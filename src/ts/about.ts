@@ -67,9 +67,9 @@ gsap.from('#about .about-me__description > img', {
    scrollTrigger: {
       trigger: '#about .about-me__description > img',
       pin: false, // pin the trigger element while active
-      start: 'center center', // when the top of the trigger hits the top of the viewport
+      start: 'top center', // when the top of the trigger hits the top of the viewport
       end: 'bottom center', // end after scrolling 500px beyond the start
-      scrub: 1.5, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+      scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
    },
    stagger: 2.5,
    duration: 2,

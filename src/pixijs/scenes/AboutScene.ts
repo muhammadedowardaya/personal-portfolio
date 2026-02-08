@@ -115,7 +115,7 @@ export class AboutScene extends Scene {
 
       if (
          this.stickmanController.moveState === 1 &&
-         this.cameraX < this.world.width
+         this.cameraX < AboutWorld.WORLD_WIDTH + this.app.renderer.screen.width
       ) {
          this.cameraX += 1 * speed;
          this.world.setCameraX(this.cameraX);

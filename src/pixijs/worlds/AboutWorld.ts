@@ -23,7 +23,7 @@ export class AboutWorld extends Container {
 
    stickman: Stickman;
 
-   static WORLD_WIDTH = 10000;
+   static WORLD_WIDTH = 12000;
    static WORLD_HEIGHT = 800;
 
    constructor(app: Application) {
@@ -31,6 +31,7 @@ export class AboutWorld extends Container {
 
       this.app = app;
       this.sortableChildren = true;
+      this.setSize(AboutWorld.WORLD_WIDTH, AboutWorld.WORLD_HEIGHT);
 
       const screenWidth = app.renderer.screen.width;
       const screenHeight = app.renderer.screen.height;
@@ -114,22 +115,7 @@ export class AboutWorld extends Container {
       this.ground.width = AboutWorld.WORLD_WIDTH;
       this.ground.height = 130;
       this.ground.y = screenHeight - AboutWorld.WORLD_HEIGHT / 7;
-      // this.ground.y = AboutWorld.WORLD_HEIGHT - 100;
       this.addChild(this.ground);
-
-      // const grassForegroundTexture = Texture.from('ground_2');
-      // grassForegroundTexture.source.addressMode = 'repeat';
-
-      // const grassForegroundTextureRepeated = new Texture({
-      //    source: grassForegroundTexture.source,
-      //    frame: new Rectangle(0, 0, AboutWorld.WORLD_WIDTH, 600),
-      // });
-
-      // this.grassForeground = new Sprite(grassForegroundTextureRepeated);
-      // this.grassForeground.width = AboutWorld.WORLD_WIDTH;
-      // this.grassForeground.height = AboutWorld.WORLD_HEIGHT;
-      // this.grassForeground.y = AboutWorld.WORLD_HEIGHT / 2 + 20;
-      // this.addChild(this.grassForeground);
 
       this.stickman = new Stickman();
       this.stickman.scale.set(0.4);
