@@ -1,26 +1,29 @@
-import { AnimatedSprite, Container, Texture, Ticker } from "pixi.js";
-import { AssetRegistry } from "../core/Assets";
+import { AnimatedSprite, Container, Texture, Ticker } from 'pixi.js';
+import { AssetRegistry } from '../core/Assets';
 
-type StickmanState = "idle" | "walk" | "fly" | "idle_to_fly" | "fly_to_idle" | "idle_to_walk" | "walk_to_idle";
+type StickmanState =
+   | 'idle'
+   | 'walk'
+   | 'fly'
+   | 'idle_to_fly'
+   | 'fly_to_idle'
+   | 'idle_to_walk'
+   | 'walk_to_idle';
 
-function frameKey(
-   state: StickmanState,
-   index: number,
-   pad = 4
-) {
-   return `${state}_${String(index).padStart(pad, "0")}`;
+function frameKey(state: StickmanState, index: number, pad = 4) {
+   return `${state}_${String(index).padStart(pad, '0')}`;
 }
 
 type AnimationConfig = {
    frames: number;
    loop: boolean;
    loopDelay?: number; // ms
-   speed?: number
+   speed?: number;
 };
 
 const ANIM_CONFIG: Record<StickmanState, AnimationConfig> = {
    idle: { frames: 18, loop: false, loopDelay: 2000 },
-   walk: { frames: 14, loop: true, speed: 0.5 },
+   walk: { frames: 14, loop: true, speed: 0.3 },
    fly: { frames: 39, loop: true, speed: 0.2 },
    idle_to_fly: { frames: 11, loop: false, speed: 0.5 },
    idle_to_walk: { frames: 6, loop: false, speed: 0.5 },
@@ -29,7 +32,6 @@ const ANIM_CONFIG: Record<StickmanState, AnimationConfig> = {
 };
 
 export class Stickman extends Container {
-
    private animations!: Record<StickmanState, AnimatedSprite>;
    private currentState!: StickmanState;
    private currentSprite!: AnimatedSprite;
@@ -40,22 +42,53 @@ export class Stickman extends Container {
       super();
 
       this.animations = {
-         idle: this.createAnimation("idle", ANIM_CONFIG.idle.frames, ANIM_CONFIG.idle.loop),
-         walk: this.createAnimation("walk", ANIM_CONFIG.walk.frames, ANIM_CONFIG.walk.loop),
-         fly: this.createAnimation("fly", ANIM_CONFIG.fly.frames, ANIM_CONFIG.fly.loop),
-         idle_to_walk: this.createAnimation("idle_to_walk", ANIM_CONFIG.idle_to_walk.frames, ANIM_CONFIG.idle_to_walk.loop),
-         idle_to_fly: this.createAnimation("idle_to_fly", ANIM_CONFIG.idle_to_fly.frames, ANIM_CONFIG.idle_to_fly.loop),
-         fly_to_idle: this.createAnimation("fly_to_idle", ANIM_CONFIG.fly_to_idle.frames, ANIM_CONFIG.fly_to_idle.loop),
-         walk_to_idle: this.createAnimation("walk_to_idle", ANIM_CONFIG.walk_to_idle.frames, ANIM_CONFIG.walk_to_idle.loop),
+         idle: this.createAnimation(
+            'idle',
+            ANIM_CONFIG.idle.frames,
+            ANIM_CONFIG.idle.loop,
+         ),
+         walk: this.createAnimation(
+            'walk',
+            ANIM_CONFIG.walk.frames,
+            ANIM_CONFIG.walk.loop,
+         ),
+         fly: this.createAnimation(
+            'fly',
+            ANIM_CONFIG.fly.frames,
+            ANIM_CONFIG.fly.loop,
+         ),
+         idle_to_walk: this.createAnimation(
+            'idle_to_walk',
+            ANIM_CONFIG.idle_to_walk.frames,
+            ANIM_CONFIG.idle_to_walk.loop,
+         ),
+         idle_to_fly: this.createAnimation(
+            'idle_to_fly',
+            ANIM_CONFIG.idle_to_fly.frames,
+            ANIM_CONFIG.idle_to_fly.loop,
+         ),
+         fly_to_idle: this.createAnimation(
+            'fly_to_idle',
+            ANIM_CONFIG.fly_to_idle.frames,
+            ANIM_CONFIG.fly_to_idle.loop,
+         ),
+         walk_to_idle: this.createAnimation(
+            'walk_to_idle',
+            ANIM_CONFIG.walk_to_idle.frames,
+            ANIM_CONFIG.walk_to_idle.loop,
+         ),
       };
 
-      this.currentState = "idle";
+      this.currentState = 'idle';
       this.currentSprite = this.animations.idle;
       this.addChild(this.currentSprite);
       this.currentSprite.play();
    }
 
-   private loadAnimationTextures(prefix: StickmanState, frameCount: number): Texture[] {
+   private loadAnimationTextures(
+      prefix: StickmanState,
+      frameCount: number,
+   ): Texture[] {
       const textures = Array.from({ length: frameCount }, (_, i) => {
          return AssetRegistry.tex(frameKey(prefix, i));
       });
@@ -66,9 +99,8 @@ export class Stickman extends Container {
    private createAnimation(
       prefix: StickmanState,
       frameCount: number,
-      loop: boolean
+      loop: boolean,
    ): AnimatedSprite {
-
       const textures = this.loadAnimationTextures(prefix, frameCount);
 
       const animation = new AnimatedSprite(textures);
@@ -96,15 +128,15 @@ export class Stickman extends Container {
    }
 
    playIdle() {
-      this.setState("idle");
+      this.setState('idle');
    }
 
    playFly() {
-      this.setState("fly");
+      this.setState('fly');
    }
 
    playWalk() {
-      this.setState("walk");
+      this.setState('walk');
    }
 
    playIdleToFly() {
@@ -126,7 +158,7 @@ export class Stickman extends Container {
    }
 
    playIdleToWalk() {
-      this.setState("idle_to_walk");
+      this.setState('idle_to_walk');
 
       this.currentSprite.onComplete = () => {
          this.currentSprite.onComplete = undefined;
@@ -135,13 +167,12 @@ export class Stickman extends Container {
    }
 
    playWalkToIdle() {
-      this.setState("walk_to_idle");
+      this.setState('walk_to_idle');
 
       this.currentSprite.onComplete = () => {
          this.currentSprite.onComplete = undefined;
          this.playIdle();
       };
-
    }
 
    // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -157,6 +188,4 @@ export class Stickman extends Container {
          }
       }
    }
-
-
 }

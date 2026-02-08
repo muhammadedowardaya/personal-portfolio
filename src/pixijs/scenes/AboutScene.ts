@@ -39,7 +39,8 @@ export class AboutScene extends Scene {
 
       this.stickmanController = new StickmanController();
       this.stickmanController.x = app.renderer.screen.width / 2;
-      this.stickmanController.y = app.renderer.screen.height / 2 + 200;
+      this.stickmanController.y =
+         app.renderer.screen.height - this.stickmanController.height / 2;
       this.stickmanController.scale.set(0.5);
 
       this.stickmanController.onMoveStateChange = (state) => {
@@ -105,10 +106,10 @@ export class AboutScene extends Scene {
    update(delta: number) {
       this.world.update(delta);
 
-      const speed = 10; // px / second
+      const speed = 5; // px / second
 
       if (this.stickmanController.moveState === -1 && this.cameraX > 0) {
-         this.cameraX -= 1 * (speed * 2);
+         this.cameraX -= 1 * (speed * 5);
          this.world.setCameraX(this.cameraX);
          this.updateTriggerText();
       }

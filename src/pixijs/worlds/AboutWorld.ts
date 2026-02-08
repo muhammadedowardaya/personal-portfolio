@@ -114,6 +114,7 @@ export class AboutWorld extends Container {
       this.ground = new Sprite(tanahTextureRepeated);
       this.ground.width = AboutWorld.WORLD_WIDTH;
       this.ground.height = 130;
+      this.ground.anchor.set(0.5, 0);
       this.ground.y = screenHeight - AboutWorld.WORLD_HEIGHT / 7;
       this.addChild(this.ground);
 
