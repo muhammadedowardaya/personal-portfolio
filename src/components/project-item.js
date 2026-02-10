@@ -19,10 +19,32 @@ class ProjectItem extends HTMLElement {
 		const icon = this.getAttribute('icon');
 		const title = this.getAttribute('title');
 		const description = this.getAttribute('description');
+
 		const github = this.getAttribute('github');
+		const livePreview = this.getAttribute('livePreview');
+
+		const hasGithub =
+			github &&
+			github !== 'null' &&
+			github !== 'undefined' &&
+			github.trim() !== '';
+
+		const hasLivePreview =
+			livePreview &&
+			livePreview !== 'null' &&
+			livePreview !== 'undefined' &&
+			livePreview.trim() !== '';
 
 		this.shadowRoot.innerHTML = `
             <style>
+                .inline-block {
+                    display: inline-block;
+                }
+
+                .hidden {
+                    display:none;
+                }
+
                 article.project-item {
                     display: flex;
                     flex-direction: column;
@@ -49,7 +71,9 @@ class ProjectItem extends HTMLElement {
                         header {
                             h3 {
                                 font-size: 20px;
+                                line-height: 28px;
                                 font-weight: 600;
+                                margin-bottom: 10px;
                             }
 
                             & > * {
@@ -57,6 +81,12 @@ class ProjectItem extends HTMLElement {
                                 margin: 0;
                             }
                         }
+                    }
+
+                    .project-item__actions {
+                        display:flex;
+                        flex-wrap:wrap;
+                        gap:8px;
                     }
 
                     a {
@@ -68,7 +98,8 @@ class ProjectItem extends HTMLElement {
                         justify-content: center;
                         align-items: center;
                         height: 40px;
-                        width: 100%;
+                        width: max-content;
+                        padding: 0px 14px;
                         background-color: var(--color-cta);
 
                         &:hover {
@@ -87,7 +118,27 @@ class ProjectItem extends HTMLElement {
                         <p>${description}</p>
                     </header>
                 </div>
-                <a href=${github} aria-label="github button"><span>Source Github</span></a>
+                <div class="project-item__actions">
+                    ${
+											hasGithub
+												? `
+                        <a href="${github}" aria-label="github button">
+                        Source Github
+                        </a>
+                    `
+												: ''
+										}
+
+                    ${
+											hasLivePreview
+												? `
+                        <a href="${livePreview}" aria-label="live preview button">
+                        Live Preview
+                        </a>
+                    `
+												: ''
+										}
+                </div>
             </article>
         `;
 	}
