@@ -122,7 +122,7 @@ class ProjectItem extends HTMLElement {
                     ${
 											hasGithub
 												? `
-                        <a href="${github}" aria-label="github button">
+                        <a href="${github}" target="_blank" aria-label="github button">
                         Source Github
                         </a>
                     `
@@ -132,7 +132,7 @@ class ProjectItem extends HTMLElement {
                     ${
 											hasLivePreview
 												? `
-                        <a href="${livePreview}" aria-label="live preview button">
+                        <a href="${livePreview}" target="_blank" aria-label="live preview button">
                         Live Preview
                         </a>
                     `

@@ -33,6 +33,10 @@ export class AboutWorld extends Container {
 		this.sortableChildren = true;
 		this.setSize(AboutWorld.WORLD_WIDTH, AboutWorld.WORLD_HEIGHT);
 
+		window.addEventListener('resize', () => {
+			this.setSize(AboutWorld.WORLD_WIDTH, AboutWorld.WORLD_HEIGHT);
+		});
+
 		const screenWidth = app.renderer.screen.width;
 		const screenHeight = app.renderer.screen.height;
 

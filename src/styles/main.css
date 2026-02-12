@@ -23,11 +23,12 @@ body {
 .about-track {
 	display: block;
 	position: relative;
-	height: max-content;
+	height: 100dvh;
+	width: 100dvw;
 
 	canvas {
-		width: 100dvw !important;
-		height: 100dvh !important;
+		width: 100dvw;
+		height: 100dvh;
 		touch-action: pan-y !important;
 	}
 
