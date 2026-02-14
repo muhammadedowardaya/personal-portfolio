@@ -51,10 +51,19 @@ class ProjectItem extends HTMLElement {
                     align-items: start;
                     gap: 28px;
 
+
                     img {
                         height: 150px;
                         width: 100%;
                         object-fit: cover;
+                    
+                        @media (width >= 400px){
+                            height:250px;
+                        }
+
+                         @media (width >= 660px){
+                            height:300px;
+                        }
                     }
 
                     .project-item__info {

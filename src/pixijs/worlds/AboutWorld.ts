@@ -33,48 +33,41 @@ export class AboutWorld extends Container {
 		this.sortableChildren = true;
 		this.setSize(AboutWorld.WORLD_WIDTH, AboutWorld.WORLD_HEIGHT);
 
-		window.addEventListener('resize', () => {
-			this.setSize(AboutWorld.WORLD_WIDTH, AboutWorld.WORLD_HEIGHT);
+		requestAnimationFrame(() => {
+			this.onResize();
 		});
 
-		const screenWidth = app.renderer.screen.width;
-		const screenHeight = app.renderer.screen.height;
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		let resizeTimeout: any;
+
+		window.addEventListener('resize', () => {
+			clearTimeout(resizeTimeout);
+
+			resizeTimeout = setTimeout(() => {
+				this.onResize();
+			}, 150);
+		});
 
 		this.sky = new Sprite(Texture.from('sky'));
 		this.sky.anchor.set(0);
-		this.sky.width = screenWidth;
-		this.sky.height = AboutWorld.WORLD_HEIGHT;
 		this.addChild(this.sky);
 
 		this.clouds = new Container();
-		this.clouds.scale.set(0.8);
-		this.clouds.y = AboutWorld.WORLD_HEIGHT / 2 - 400;
 		this.createClouds();
 		this.addChild(this.clouds);
 
 		this.grass = new Container();
-		this.grass.x = 380;
-		this.grass.y = AboutWorld.WORLD_HEIGHT - 350;
 		this.createGrass();
 		this.addChild(this.grass);
 
 		this.bigTree = new Container();
-		this.bigTree.x = 700;
-		this.bigTree.scale.set(3);
-		this.bigTree.y = screenHeight - AboutWorld.WORLD_HEIGHT - 100;
 		this.addChild(this.bigTree);
 
 		this.wheats = new Container();
-		this.wheats.scale.set(0.8);
-		this.wheats.y = screenHeight - AboutWorld.WORLD_HEIGHT / 3 - 25;
-		this.wheats.x = 500;
 		this.createWheats();
 		this.addChild(this.wheats);
 
 		this.fences = new Container();
-		this.fences.x = 500;
-		this.fences.y = screenHeight - AboutWorld.WORLD_HEIGHT / 5 + 5;
-		this.fences.scale.set(0.25);
 		this.createFences();
 		this.addChild(this.fences);
 
@@ -87,9 +80,6 @@ export class AboutWorld extends Container {
 		});
 
 		this.bgTrees = new Sprite(bgTreesRepeatedTexture);
-		this.bgTrees.width = AboutWorld.WORLD_WIDTH;
-		this.bgTrees.height = 500;
-		this.bgTrees.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2;
 		this.createBigTrees();
 		this.addChild(this.bgTrees);
 
@@ -102,9 +92,6 @@ export class AboutWorld extends Container {
 		});
 
 		this.hillBackground = new Sprite(hillBackgroundRepeatedTexture);
-		this.hillBackground.width = AboutWorld.WORLD_WIDTH;
-		this.hillBackground.height = 500;
-		this.hillBackground.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2;
 		this.addChild(this.hillBackground);
 
 		const tanahTexture = Texture.from('tanah');
@@ -116,36 +103,21 @@ export class AboutWorld extends Container {
 		});
 
 		this.ground = new Sprite(tanahTextureRepeated);
-		this.ground.width = AboutWorld.WORLD_WIDTH;
-		this.ground.height = 130;
 		this.ground.anchor.set(0.5, 0);
-		this.ground.y = screenHeight - AboutWorld.WORLD_HEIGHT / 7;
 		this.addChild(this.ground);
 
 		this.stickman = new Stickman();
-		this.stickman.scale.set(0.4);
-		this.stickman.x = 200;
-		this.stickman.y = screenHeight - AboutWorld.WORLD_HEIGHT / 7 - 10;
 		this.addChild(this.stickman);
 
 		this.house = new Sprite(Texture.from('house'));
 		this.house.anchor.set(0.5);
-		this.house.scale.set(0.8);
-		this.house.x = 200;
-		this.house.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2 + 30;
 		this.addChild(this.house);
 
 		this.sdn = new Sprite(Texture.from('sdn'));
 		this.sdn.anchor.set(0.5, 1);
-		this.sdn.scale.set(1.3);
-		this.sdn.x = 1900;
-		this.sdn.y = screenHeight - AboutWorld.WORLD_HEIGHT / 10 + 500;
 		this.addChild(this.sdn);
 
 		this.gerbangSdn = new Sprite(Texture.from('gerbang_sdn'));
-		this.gerbangSdn.scale.set(1);
-		this.gerbangSdn.x = 1400;
-		this.gerbangSdn.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2 - 50;
 		this.addChild(this.gerbangSdn);
 
 		// this.sky.zIndex = 0;
@@ -162,6 +134,110 @@ export class AboutWorld extends Container {
 		this.ground.zIndex = 8;
 		this.stickman.zIndex = 7;
 		// this.grassForeground.zIndex = 8;
+	}
+
+	private onResize() {
+		const width = window.innerWidth;
+		const height = window.innerHeight;
+
+		// resize renderer dulu
+		this.app.renderer.resize(width, height);
+
+		// setelah renderer berubah, update layout world
+		this.updateLayout();
+	}
+
+	private updateLayout() {
+		const screenWidth = this.app.renderer.screen.width;
+		const screenHeight = this.app.renderer.screen.height;
+
+		// posisi dan ukuran sky
+		if (this.sky) {
+			this.sky.width = screenWidth;
+			this.sky.height = AboutWorld.WORLD_HEIGHT;
+		}
+
+		// posisi dan ukuran clouds
+		if (this.clouds) {
+			this.clouds.scale.set(0.8);
+			this.clouds.y = AboutWorld.WORLD_HEIGHT / 2 - 400;
+		}
+
+		// posisi dan ukuran grass
+		if (this.grass) {
+			this.grass.x = 380;
+			this.grass.y = AboutWorld.WORLD_HEIGHT - 350;
+		}
+
+		// posisi dan ukuran big tree
+		if (this.bigTree) {
+			this.bigTree.x = 700;
+			this.bigTree.scale.set(3);
+			this.bigTree.y = screenHeight - AboutWorld.WORLD_HEIGHT - 100;
+		}
+
+		// posisi dan ukuran fences
+		if (this.fences) {
+			this.fences.x = 500;
+			this.fences.y = screenHeight - AboutWorld.WORLD_HEIGHT / 5 + 5;
+			this.fences.scale.set(0.25);
+		}
+
+		// posisi dan ukuran wheats
+		if (this.wheats) {
+			this.wheats.scale.set(0.8);
+			this.wheats.y = screenHeight - AboutWorld.WORLD_HEIGHT / 3 - 25;
+			this.wheats.x = 500;
+		}
+
+		// posisi dan ukuran background pohon jauh
+		if (this.bgTrees) {
+			this.bgTrees.width = AboutWorld.WORLD_WIDTH;
+			this.bgTrees.height = 500;
+			this.bgTrees.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2;
+		}
+
+		// posisi dan ukuran hill background
+		if (this.hillBackground) {
+			this.hillBackground.width = AboutWorld.WORLD_WIDTH;
+			this.hillBackground.height = 500;
+			this.hillBackground.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2;
+		}
+
+		// posisi dan ukuran tanah
+		if (this.ground) {
+			this.ground.width = AboutWorld.WORLD_WIDTH;
+			this.ground.height = 130;
+			this.ground.y = screenHeight - AboutWorld.WORLD_HEIGHT / 7;
+		}
+
+		// posisi dan ukuran tanah
+		if (this.stickman) {
+			this.stickman.scale.set(0.4);
+			this.stickman.x = 200;
+			this.stickman.y = screenHeight - AboutWorld.WORLD_HEIGHT / 7 - 10;
+		}
+
+		// posisi dan ukuran rumah
+		if (this.house) {
+			this.house.scale.set(0.8);
+			this.house.x = 200;
+			this.house.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2 + 30;
+		}
+
+		//  posisi dan ukuran sekolah / sdn
+		if (this.sdn) {
+			this.sdn.scale.set(1.3);
+			this.sdn.x = 1900;
+			this.sdn.y = screenHeight - AboutWorld.WORLD_HEIGHT / 10 + 500;
+		}
+
+		// posisi dan ukuran gerbang sekolah / sdn
+		if (this.gerbangSdn) {
+			this.gerbangSdn.scale.set(1);
+			this.gerbangSdn.x = 1400;
+			this.gerbangSdn.y = screenHeight - AboutWorld.WORLD_HEIGHT / 2 - 50;
+		}
 	}
 
 	private createClouds() {
