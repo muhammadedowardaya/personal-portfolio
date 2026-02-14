@@ -131,7 +131,7 @@ class ProjectItem extends HTMLElement {
                     ${
 											hasGithub
 												? `
-                        <a href="${github}" target="_blank" aria-label="github button">
+                        <a href="${github}" target="_blank" aria-label="github resouce button of ${title}">
                         Source Github
                         </a>
                     `
@@ -141,7 +141,7 @@ class ProjectItem extends HTMLElement {
                     ${
 											hasLivePreview
 												? `
-                        <a href="${livePreview}" target="_blank" aria-label="live preview button">
+                        <a href="${livePreview}" target="_blank" aria-label="live preview button of ${title}">
                         Live Preview
                         </a>
                     `
