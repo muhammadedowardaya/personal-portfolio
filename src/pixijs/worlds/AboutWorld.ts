@@ -31,21 +31,15 @@ export class AboutWorld extends Container {
 
 		this.app = app;
 		this.sortableChildren = true;
-		this.setSize(AboutWorld.WORLD_WIDTH, AboutWorld.WORLD_HEIGHT);
+		// this.setSize(AboutWorld.WORLD_WIDTH, AboutWorld.WORLD_HEIGHT);
 
-		requestAnimationFrame(() => {
+		// tunggu Pixi siap render
+		this.app.ticker.addOnce(() => {
 			this.onResize();
 		});
 
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		let resizeTimeout: any;
-
 		window.addEventListener('resize', () => {
-			clearTimeout(resizeTimeout);
-
-			resizeTimeout = setTimeout(() => {
-				this.onResize();
-			}, 150);
+			this.onResize();
 		});
 
 		this.sky = new Sprite(Texture.from('sky'));

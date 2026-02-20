@@ -109,7 +109,7 @@
 					class="mt-20 flex flex-col gap-[10%] tracking-[-3px] font-semibold text-5xl"
 				>
 					<li><a href="#about">ABOUT ME</a></li>
-					<li><a href="#projects">PROJECT</a></li>
+					<li><a href="#projects">PROJECTS</a></li>
 					<li><a href="#contact">CONNECT</a></li>
 				</ul>
 				<div class="mt-auto md:hidden">
@@ -128,16 +128,16 @@
 			<nav
 				aria-label="Primary Navigation"
 				id="primary-desktop-navigation"
-				class="hidden w-full md:flex z-30 h-max bg-transparent font-normal text-lg"
+				class="hidden w-full md:flex z-30 h-max bg-transparent font-normal text-lg text-[#171717]/80"
 			>
 				<ul class="flex gap-4 justify-between w-full">
 					<li>
 						<a href="#" class="font-semibold">MEDOW</a>
 					</li>
 					<li class="ml-auto"><a href="#about">ABOUT ME</a></li>
-					<li class="mr-auto"><a href="#projects">PROJECT</a></li>
+					<li class="mr-auto"><a href="#projects">PROJECTS</a></li>
 					<li>
-						<a href="#contact">CONNECT</a>
+						<a href="#contact" class="font-semibold">CONNECT</a>
 					</li>
 				</ul>
 			</nav>
@@ -145,14 +145,19 @@
 			<!--  -->
 		</header>
 		<main>
-			<section class="p-5 md:px-20 pb-16 bg-background relative z-10 md:pt-16">
+			<section class="p-5 md:px-20 pb-16 bg-background relative z-10 md:pt-10">
 				<header class="w-max md:mx-auto">
 					<h1
+						class="font-semibold md:font-normal tracking-widest text-xl font-sofia relative md:top-1 md:mr-auto w-max"
+					>
+						MUHAMMAD EDO WARDAYA
+					</h1>
+					<h2
 						class="relative z-10 font-extrabold md:font-normal text-5xl md:text-center md:text-[96px] font-sofia tracking-[-2pt] md:tracking-[-5px]"
 					>
 						FRONTEND WEB <br class="md:hidden" />
 						DEV<span class="md:hidden">ELOPER</span>
-					</h1>
+					</h2>
 					<p
 						class="font-semibold md:font-normal text-xl font-sofia relative md:-top-2 md:ml-auto w-max"
 					>
@@ -164,27 +169,46 @@
 					alt="Foto profil Muhammad Edo Wardaya"
 					class="my-6 md:my-0 w-24 h-24 relative md:-top-6 md:-right-6 md:z-0 md:w-[150px] md:h-[150px] object-cover object-top md:mx-auto"
 				/>
-				<p class="font-normal text-base md:ml-[25vw] md:max-w-[480px]">
-					Bukan hanya sekedar membangun tampilan website, namun membuatnya jauh
-					lebih hidup dengan interaksi menarik, desain cantik dan performa yang
-					optimal
+				<p class="text-center text-[#171717]/80 mb-6">
+					muhammadedowardaya@gmail.com
 				</p>
-				<div
-					class="mt-10 md:mt-16 flex flex-col md:flex-row items-center justify-between gap-12"
+				<p
+					class="font-normal text-base text-center md:mx-auto md:max-w-[480px]"
 				>
-					<div class="self-start">
-						<p class="tracking-widest uppercase font-semibold">
-							Ayo Kolaborasi!
-						</p>
-						<a href="#" class="font-normal">muhammadedowardaya@gmail.com</a>
-					</div>
-					<a href="#" class="self-end flex items-center gap-2 text-xl"
-						><span class="font-semibold uppercase">project</span>
-						<iconify-icon
+					I build modern, interactive websites with animation, clean UI, and
+					strong performance.
+				</p>
+
+				<div
+					class="mt-10 md:mt-10 flex flex-col md:flex-row items-center justify-center gap-12"
+				>
+					<a
+						href="#"
+						class="self-end flex items-center gap-2 text-lg bg-[var(--color-cta-primary)] text-white py-2 px-4"
+					>
+						<!-- <span>[</span> -->
+						<span class="font-semibold uppercase inline-block px-4"
+							>View Projects</span
+						>
+						<!-- <span>]</span> -->
+						<!-- <iconify-icon
 							icon="ic:round-arrow-right-alt"
 							aria-hidden="true"
-						></iconify-icon
-					></a>
+						></iconify-icon -->
+					</a>
+					<div class="self-start">
+						<a
+							href="#"
+							class="flex items-center gap-2 text-lg uppercase py-2 px-4 outline-2 -outline-offset-2 outline-[var(--color-cta-primary)]"
+						>
+							<!-- <span>[</span> -->
+							<span class="font-semibold uppercase px-4 inline-block"
+								>Contacts</span
+							>
+							<!-- <span>]</span> -->
+						</a>
+						<!-- <a href="#" class="font-normal">muhammadedowardaya@gmail.com</a> -->
+					</div>
 				</div>
 			</section>
 			<section id="about" class="overflow-hidden">
